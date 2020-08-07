@@ -574,7 +574,7 @@ header #start-bar {
   height: 50px;
   border-radius: 25px;
   border: 1px solid var(--purpleBlue-color-text);
-  background-color: var(--white-color-for-words);
+  background-color: transparent;
   font-size: 13px;
   font-weight: bold;
   color: var(--purpleBlue-color-text);
