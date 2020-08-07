@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style/css/reset.css">
+    <link rel="stylesheet" href="style/css/main.css">
+    <link rel="stylesheet" href="" id="cssDarks">
+
+    <script src="https://kit.fontawesome.com/7270623351.js" crossorigin="anonymous"></script>
+
+    <title>GifOS</title>
+</head>
+
+<body>
+
+    <header>
+        <div id="start-bar"></div>
+        <figure id="logo">
+            <img src="./images/logo-mobile.svg" alt="Logo" id="logo-img">
+        </figure>
+        <!-- Burguer menu -->
+        <img src="./images/burger.svg" alt="burguer menu" id="burguer-icon">
+        <nav id="navbar">
+            <ul id="ul-menu">
+                <li><a href="#" id="dark-mode">Modo Nocturno</a>
+                    <hr>
+                </li>
+                <li><a href="#">Favoritos</a>
+                    <hr>
+                </li>
+                <li><a href="#">Mis GIFOS</a>
+                    <hr>
+                </li>
+                <li id="button-crea-gif"><a href="#"><img src="./images/button-crear-gifo.svg" alt="button-create-gifo"
+                            id="create-gifo"></a></li>
+            </ul>
+        </nav>
+        <!-- Burguer menu ENDS -->
+    </header>
+
+    <main>
+        <section id="cover-page">
+            <h2>Inspírate, busca, guarda, y crea los mejores <span>GIFOS<span></h2>
+
+            <figure>
+                <img src="./images/ilustra_header.svg" alt="cover figure">
+            </figure>
+            <div id="searchBox" class="passive-styles">
+                <input type="search" id="search-input" placeholder="Busca GIFOS y más">
+                <img src="./images/icon-search.svg" alt="search-icon" id="searchIcon"> 
+                <!-- <img src="./images/icon-search-gray.svg" alt="search-icon" id="searchIcon" class="searchIconGray"> -->
+                
+                <ul id="recommendations">
+                    
+                </ul>
+            </div>
+
+            <article id="trending">
+                <h2>Trending:</h2>
+                <ul>
+                    <li><a href="#">Reactions,</a></li>
+                    <li><a href="#">Entertainment,</a></li>
+                    <li><a href="#">Sports,</a></li>
+                    <li><a href="#">Stickers,</a></li>
+                    <li><a href="#">Artists</a></li>
+                </ul>
+            </article>
+        </section>
+
+        <section id="search-results">
+            <hr id="separatorSearchResults">
+            <h2 id="searched-thing"></h2>
+            <figure id="search-results-container">
+        
+            </figure>
+            <button id="ver-mas-btn">VER MÁS</button>
+        </section>
+
+        <section id="trendingGIFOS">
+            <h2>Trending GIFOS</h2>
+            <p>Mira los últimos GIFOS de nuestra comunidad.</p>
+            <figure id="trendings-results-container">
+                <img src="https://via.placeholder.com/300" class="trending-results-styles">
+                <img src="https://via.placeholder.com/300" class="trending-results-styles">
+                <img src="https://via.placeholder.com/300" class="trending-results-styles">
+                <img src="https://via.placeholder.com/300" class="trending-results-styles">
+                <img src="https://via.placeholder.com/300" class="trending-results-styles">
+                <img src="https://via.placeholder.com/300" class="trending-results-styles">
+                <img src="https://via.placeholder.com/300" class="trending-results-styles">
+                <img src="https://via.placeholder.com/300" class="trending-results-styles">
+            </figure>
+        </section>
+    </main>
+
+    <footer>
+        <section>
+            <article>
+                <p>Compartir en:</p>
+                <div id="social-networks">
+                    <figure><a href="www.facebook.com"><img src="./images/icon_facebook.svg" alt="facebook icon"></a>
+                    </figure>
+                    <figure><a href=www.twitter.com><img src="./images/icon-twitter.svg" alt="twitter icon"></a>
+                    </figure>
+                    <figure><a href="www.instagram.com"><img src="./images/icon_instagram.svg" alt="instagram icon"></a>
+                    </figure>
+                </div>
+            </article>
+            <p id="copyR"><span><i class="far fa-copyright"></i></span> GIFOS 2020 All Rights Reserved.</p>
+        </section>
+        <div id="end-bar"></div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/scripts/darkModeAndBurguerMenu.js" type="module"></script>
+    <script src="./scripts/searchbar.js" type="module"></script>
+    <script src="/scripts/app.js" type="module"></script>
+</body>
+
+</html>

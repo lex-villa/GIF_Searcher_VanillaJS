@@ -1,0 +1,231 @@
+/***** MOBILE VERSION ******/
+
+header {
+  width: 100%;
+  height: 95px;
+
+  position: absolute;
+
+  z-index: 5;
+
+  #start-bar {
+    height: 5px;
+    background: var(--bar-color);
+    margin-bottom: 12px;
+  }
+}
+
+/** **/
+
+#logo {
+  display: block;
+  float: left;
+
+  width: 52.8px;
+  height: 52.8px;
+
+  margin-top: 12.5px;
+  margin-left: 16px;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/** **/
+
+#burguer-icon {
+  position: relative;
+
+  width: 15px;
+  height: 14px;
+
+  float: right;
+  top: 17px;
+  right: 10px;
+
+  padding: 18px 10px;
+
+  cursor: pointer;
+}
+
+/** **/
+
+#ul-menu {
+  font-family: "Montserrat", sans-serif;
+
+  clear: both;
+
+  height: 0;
+
+  margin-top: 90px;
+
+  list-style: none;
+
+  background: var(--background-color-ul-menu);
+
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  #button-crea-gif {
+    display: none;
+  }
+
+  li {
+    text-align: center;
+
+    height: 60px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &:nth-child(1) {
+      margin-top: 12px;
+    }
+
+    a {
+      font-family: inherit;
+      font-size: 18px;
+      font-weight: 600;
+
+      text-decoration: none;
+
+      color: var(--white-color-for-words);
+
+      line-height: 60px;
+      /*
+      &:hover {
+      }
+
+      &:active {
+      } */
+    }
+    hr {
+      width: 35px;
+      margin-top: -7px;
+    }
+  }
+}
+
+/******************************************************************************/
+
+/***** DESKTOP VERSION ******/
+@media screen and (min-width: 1170px) {
+  
+  header {
+    #start-bar {
+      margin-bottom: 0px;
+    }
+  }
+  
+  /** **/
+
+  #logo {
+    width: 60.8px;
+    height: 60.8px;
+
+    margin-top: 12.5px;
+    margin-left: 135px;
+  }
+
+  /** **/
+
+  #burguer-icon {
+    display: none;
+  }
+
+  /** **/
+
+  #navbar {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  /** **/
+
+  #ul-menu {
+    clear: both;
+
+    width: 40%;
+    height: fit-content;
+
+    margin-top: 10px;
+    margin-right: 140px;
+
+    list-style: none;
+
+    background: none;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    #button-crea-gif {
+      display: block;
+
+      width: 54px;
+      height: 54px;
+
+      border: 1px solid var(--purpleBlue-color-border);
+      border-radius: 30px;
+
+      background: var(--white);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      a {
+        width: fit-content;
+        height: fit-content;
+
+        img {
+          width: fit-content;
+          height: fit-content;
+        }
+      }
+    }
+
+    li {
+      text-align: center;
+
+      height: 60px;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
+      &:nth-child(1) {
+        margin-top: 0px;
+      }
+
+      a {
+        font-size: 14px;
+        font-weight: 700;
+
+        color: var(--purpleBlue-color-text);
+
+        text-decoration: none;
+        text-transform: uppercase;
+
+        line-height: 60px;
+        /*
+        &:hover {
+        }
+  
+        &:active {
+        } */
+      }
+
+      hr {
+        display: none;
+      }
+    }
+  }
+}
