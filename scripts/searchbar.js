@@ -9,7 +9,7 @@ const searchContainer = document.getElementById('searchBox');
 const imgContainer = document.getElementById("search-results-container");
 const verMasBtn = document.getElementById("ver-mas-btn");
 const wordContainer = document.getElementById("searched-thing");
-
+const separatorSearchResults = document.getElementById("separatorSearchResults");
 /************************ FUNCIONES ***************************************************/
 /** Crea los espacios donde se mostraran los GIF's recibidos de la busqueda */
 const createCardsForSearch = array => {
@@ -36,7 +36,6 @@ const createAndPaintSuggestions = async (inValue) => {
     let arrSugesstions = await sugesstions(inValue);
     /** */
     const dataArray = await Object.values(arrSugesstions);
-    console.log(dataArray);
     /** */
     dataArray.forEach(element => {
         const nameSugesstion = element.name;
@@ -65,6 +64,12 @@ const createAndPaintSuggestions = async (inValue) => {
     let iconX = document.querySelector(".iconX")
     iconX.addEventListener("click", () => {
         container.innerHTML = "";
+        
+        separatorSearchResults.style.display = "none";
+        wordContainer.innerHTML = "";
+        imgContainer.innerHTML = "";
+        verMasBtn.style.display = "none";
+
         input.value = '';
         iconSearch.src = "./images/icon-search.svg";
         searchContainer.classList.add('passive-styles');
@@ -87,8 +92,6 @@ const searchGIF = async (userQuery) => {
         if (response.ok) {
             const responseJson = await response.json();
 
-            console.log(responseJson);
-            console.log(responseJson.data[0].embed_url);
             const dataArr = responseJson.data;
 
             const separatorSearchResults = document.getElementById("separatorSearchResults");
@@ -149,13 +152,12 @@ input.addEventListener("keyup", e => { ///hacer que los listeners de apretar se 
         searchContainer.classList.add('passive-styles');
         searchContainer.classList.remove('active-styles');
         isX = false
-        console.log("entro a la parte verdadera del if")
+
         verMasCounter = 1;
         searchGIF(inputValue);
 
     } else {
         /**  */
-        console.log("entro a la parte else del if")
         createAndPaintSuggestions(inputValue);
     };
 });
@@ -164,7 +166,7 @@ searchIcon.addEventListener("click", () => {
     imgContainer.innerHTML = "";
 
     let inputValue = input.value;
-    console.log(isX)
+
     if (inputValue != "" && isX === false) {
         verMasCounter = 1;
         searchGIF(inputValue);
@@ -173,6 +175,7 @@ searchIcon.addEventListener("click", () => {
 /** */
 verMasBtn.addEventListener("click", () => {
     const valuetoSearch = wordContainer.innerHTML;
+    imgContainer.innerHTML = "";
     verMasCounter++;
     searchGIF(valuetoSearch);
 });
