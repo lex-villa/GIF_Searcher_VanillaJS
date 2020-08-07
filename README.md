@@ -1,0 +1,1 @@
+# GIF_Searcher_VanillaJS
