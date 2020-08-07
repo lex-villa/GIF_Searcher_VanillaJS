@@ -1,5 +1,6 @@
 /************************ VARIABLES ***************************************************/
 let isX = false;
+let verMasCounter = 1;
 /************************ ELEMENTOS ***************************************************/
 const input = document.getElementById("search-input");
 const container = document.getElementById('recommendations');
@@ -77,7 +78,7 @@ const searchGIF = async (userQuery) => {
     const baseURL = "https://api.giphy.com/v1/gifs/search?";
     const apikey = "isa5RTREAjmlL4Sr9iYEx9g5QycePeF2";
     const query = userQuery;
-    const limit = 12;
+    const limit = 12 * verMasCounter;
     const endpoint = `${baseURL}api_key=${apikey}&q=${query}&limit=${limit}`;
 
     try {
@@ -149,6 +150,7 @@ input.addEventListener("keyup", e => { ///hacer que los listeners de apretar se 
         searchContainer.classList.remove('active-styles');
         isX = false
         console.log("entro a la parte verdadera del if")
+        verMasCounter = 1;
         searchGIF(inputValue);
 
     } else {
@@ -164,11 +166,13 @@ searchIcon.addEventListener("click", () => {
     let inputValue = input.value;
     console.log(isX)
     if (inputValue != "" && isX === false) {
+        verMasCounter = 1;
         searchGIF(inputValue);
     }
 });
 /** */
 verMasBtn.addEventListener("click", () => {
     const valuetoSearch = wordContainer.innerHTML;
+    verMasCounter++;
     searchGIF(valuetoSearch);
 });
