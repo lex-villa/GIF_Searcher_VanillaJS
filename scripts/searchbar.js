@@ -1,6 +1,7 @@
 /************************ VARIABLES ***************************************************/
 let isX = false;
 let verMasCounter = 1;
+let gifsResult;
 /************************ ELEMENTOS ***************************************************/
 const input = document.getElementById("search-input");
 const container = document.getElementById('recommendations');
@@ -13,13 +14,78 @@ const separatorSearchResults = document.getElementById("separatorSearchResults")
 /************************ FUNCIONES ***************************************************/
 /** Crea los espacios donde se mostraran los GIF's recibidos de la busqueda */
 const createCardsForSearch = array => {
+    const arrayJsons = array;
+    console.log(arrayJsons);
     array.forEach(element => {
         const imageURL = element.images.fixed_height_downsampled.url;
 
+        const figureContainer = document.createElement("figure");
+        /** */
+        const modalDeskt = document.getElementById("modal-desk");
+        const modalDeskCloned = modalDeskt.cloneNode(true);
+
         const imgTag = document.createElement("img");
         imgTag.src = imageURL;
-        imgContainer.appendChild(imgTag);
         imgTag.classList.add("search-results-styles");
+
+        /* imgContainer.appendChild(imgTag); */
+
+        figureContainer.appendChild(imgTag);
+        figureContainer.appendChild(modalDeskCloned);
+        imgContainer.appendChild(figureContainer);
+    });
+
+    /** Ya creados los resultados, los obtengo desde el DOM para manipular y mostrarlos en pantalla cuando se hace click sobre ellos*/
+    gifsResult = document.querySelectorAll(".search-results-styles");
+    const gifsResultArray = Array.from(gifsResult);
+
+    gifsResultArray.forEach(item => {
+        item.addEventListener("click", event => {
+            const imageToShow = event.target.attributes.src.nodeValue;
+            const image = document.getElementById("modal-content-id");
+            image.src = imageToShow;
+
+            const indexOfElement = (gifsResultArray.indexOf(event.target));
+            const userGifo = arrayJsons[indexOfElement].source_tld;
+            const titleGifo = arrayJsons[indexOfElement].title; 
+            const userCaption = document.getElementById("userCaption-id");
+            const titleCaption = document.getElementById("tituloCaption-id");
+            userCaption.innerHTML = userGifo;
+            titleCaption.innerHTML = titleGifo;
+
+            const modal = document.getElementById("myModal");
+            modal.style.display = "block";
+            
+
+            const closeBtn = document.getElementById("close-btn-modal-id");
+            closeBtn.addEventListener("click", () => {
+                modal.style.display = "none";
+            });
+        });
+        /** Listener para cuando esta en tamaño desktop */
+        
+    });
+    /** resolver esta chingadera */
+    const figuresContainers = document.querySelectorAll(".modal-desk-class");
+    
+    const arrfiguresContainers = Array.from(figuresContainers);
+    console.log(arrfiguresContainers)
+    console.log(gifsResultArray)
+    gifsResultArray.forEach(item => {
+        item.addEventListener("mouseenter", (event) => {
+            const modal = event.target.nextElementSibling;
+            modal.style.display = "block";
+        });
+    });
+    /** */
+    arrfiguresContainers.forEach(item => {
+        item.addEventListener("mouseleave", (event) => {
+            /* const icons = event.target.children[0];
+            const captions = event.target.children[1]; */
+
+            const modal = event.target;
+            modal.style.display = "none";    
+        });
     });
 };
 
@@ -64,7 +130,7 @@ const createAndPaintSuggestions = async (inValue) => {
     let iconX = document.querySelector(".iconX")
     iconX.addEventListener("click", () => {
         container.innerHTML = "";
-        
+
         separatorSearchResults.style.display = "none";
         wordContainer.innerHTML = "";
         imgContainer.innerHTML = "";
@@ -95,10 +161,8 @@ const searchGIF = async (userQuery) => {
             const dataArr = responseJson.data;
 
             const separatorSearchResults = document.getElementById("separatorSearchResults");
-
             verMasBtn.style.display = "block";
             separatorSearchResults.style.display = 'block';
-
             const searchWord = userQuery;
             wordContainer.innerHTML = searchWord;
 

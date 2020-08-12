@@ -23,7 +23,7 @@
 
   #search-results-container {
     display: grid;
-    grid-template-columns: 156px 156px;
+    grid-template-columns: repeat(auto-fill, 156px);
     grid-gap: 10px;
     justify-content: center;
     .search-results-styles {
@@ -54,3 +54,45 @@
     cursor: pointer;
   }
 }
+
+/******************************************************************************/
+
+/***** DESKTOP VERSION ******/
+
+@media screen and (min-width: 1024px) {
+  #search-results {
+    hr {
+      width: 338px;
+  
+  
+      margin-top: 55px;
+      margin-bottom: 43px;
+    }
+  
+    h2 {
+      text-align: center;
+  
+      margin-bottom: 38px;
+  
+      font-size: 35px;
+      font-weight: 600;
+  
+      color: var(--purpleBlue-color-text);
+    }
+  
+    #search-results-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 260px);
+      grid-gap: 31px;
+      justify-content: center;
+      margin-left: 17px;
+      margin-right: 17px;
+      .search-results-styles {
+        width: 260px;
+        height: 200px;
+      }
+    }
+  
+    
+  }
+};

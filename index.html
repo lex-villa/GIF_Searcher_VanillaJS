@@ -15,6 +15,22 @@
 </head>
 
 <body>
+    <!-- Modal Card -->
+    <div id="myModal" class="modal">
+        <img src="./images/close.svg" alt="close-btn" id="close-btn-modal-id" class="close-btn-modal">
+        <img src="https://via.placeholder.com/300" id="modal-content-id" class="modal-content" alt="image">
+        <div id="caption">
+            <div id="info">
+                <p id="userCaption-id" class="userCaption">User</p>
+                <p id="tituloCaption-id" class="tituloCaption">Titulo GIFO</p>
+            </div>
+            <div id="icons">
+                <img src="./images/icon-fav-hover.svg" alt="like-icon" class="like-icon">
+                <img src="./images/icon-download.svg" alt="download-icon" class="download-icon">
+            </div>
+        </div>
+    </div>
+    <!-- Modal Card ENDS -->
 
     <header>
         <div id="start-bar"></div>
@@ -50,11 +66,11 @@
             </figure>
             <div id="searchBox" class="passive-styles">
                 <input type="search" id="search-input" placeholder="Busca GIFOS y más">
-                <img src="./images/icon-search.svg" alt="search-icon" id="searchIcon"> 
+                <img src="./images/icon-search.svg" alt="search-icon" id="searchIcon">
                 <!-- <img src="./images/icon-search-gray.svg" alt="search-icon" id="searchIcon" class="searchIconGray"> -->
-                
+
                 <ul id="recommendations">
-                    
+
                 </ul>
             </div>
 
@@ -74,11 +90,42 @@
             <hr id="separatorSearchResults">
             <h2 id="searched-thing"></h2>
             <figure id="search-results-container">
-        
+
+                
+
+                <!-- <figure>
+                    <img src="https://via.placeholder.com/300" class="search-results-styles" id="img-content">
+                    
+                </figure>
+
+                <img src="https://via.placeholder.com/300" class="search-results-styles">
+                <img src="https://via.placeholder.com/300" class="search-results-styles">
+                <img src="https://via.placeholder.com/300" class="search-results-styles">
+                <img src="https://via.placeholder.com/300" class="search-results-styles">
+                <img src="https://via.placeholder.com/300" class="search-results-styles">
+                <img src="https://via.placeholder.com/300" class="search-results-styles">
+                <img src="https://via.placeholder.com/300" class="search-results-styles">
+                <img src="https://via.placeholder.com/300" class="search-results-styles">
+                <img src="https://via.placeholder.com/300" class="search-results-styles">
+                <img src="https://via.placeholder.com/300" class="search-results-styles">
+                <img src="https://via.placeholder.com/300" class="search-results-styles"> -->
             </figure>
             <button id="ver-mas-btn">VER MÁS</button>
         </section>
+        <!-- Modal for Desktop gifs results -->
+        <div id="modal-desk" class="modal-desk-class" style="display: none;">
+            <div id="icons-result-desk">
+                <figure class="figure-icons"><img src="./images/icon-fav-hover.svg" alt="icon"></figure>
+                <figure class="figure-icons"><img src="./images/icon-download.svg" alt="icon"></figure>
+                <figure class="figure-icons"><img src="./images/icon-max.svg" alt="icon"></figure>
+            </div>
 
+            <div id="caption-results-desk">
+                <p id="userCaption-id" class="userCaption">User</p>
+                <p id="tituloCaption-id" class="tituloCaption">Titulo GIFO</p>
+            </div>
+        </div>
+        <!-- Modal for Desktop gifs results ENDS -->
         <section id="trendingGIFOS">
             <h2>Trending GIFOS</h2>
             <p>Mira los últimos GIFOS de nuestra comunidad.</p>
