@@ -2,12 +2,13 @@
 let isX = false;
 let verMasCounter = 1;
 let gifsResult;
+let widthScreen = window.innerWidth;
 /************************ ELEMENTOS ***************************************************/
-const input = document.getElementById("search-input");
+export const input = document.getElementById("search-input");
 const container = document.getElementById('recommendations');
 const iconSearch = document.getElementById('searchIcon');
 const searchContainer = document.getElementById('searchBox');
-const imgContainer = document.getElementById("search-results-container");
+export const imgContainer = document.getElementById("search-results-container");
 const verMasBtn = document.getElementById("ver-mas-btn");
 const wordContainer = document.getElementById("searched-thing");
 const separatorSearchResults = document.getElementById("separatorSearchResults");
@@ -33,8 +34,19 @@ const createCardsForSearch = array => {
         figureContainer.appendChild(imgTag);
         figureContainer.appendChild(modalDeskCloned);
         imgContainer.appendChild(figureContainer);
+
+        /**Obtener user y caption del modalCloned y luego asignarle innerHTML */
+        const user = element.source_tld;
+        const title = element.title;
+
+        const userCaption = document.getElementById("userCaptionDesk-id");
+        const titleCaption = document.getElementById("tituloCaptionDesk-id");
+
+        userCaption.innerHTML = user;
+        titleCaption.innerHTML = title;
     });
 
+    
     /** Ya creados los resultados, los obtengo desde el DOM para manipular y mostrarlos en pantalla cuando se hace click sobre ellos*/
     gifsResult = document.querySelectorAll(".search-results-styles");
     const gifsResultArray = Array.from(gifsResult);
@@ -47,7 +59,7 @@ const createCardsForSearch = array => {
 
             const indexOfElement = (gifsResultArray.indexOf(event.target));
             const userGifo = arrayJsons[indexOfElement].source_tld;
-            const titleGifo = arrayJsons[indexOfElement].title; 
+            const titleGifo = arrayJsons[indexOfElement].title;
             const userCaption = document.getElementById("userCaption-id");
             const titleCaption = document.getElementById("tituloCaption-id");
             userCaption.innerHTML = userGifo;
@@ -55,7 +67,7 @@ const createCardsForSearch = array => {
 
             const modal = document.getElementById("myModal");
             modal.style.display = "block";
-            
+
 
             const closeBtn = document.getElementById("close-btn-modal-id");
             closeBtn.addEventListener("click", () => {
@@ -63,18 +75,26 @@ const createCardsForSearch = array => {
             });
         });
         /** Listener para cuando esta en tamaño desktop */
-        
+
     });
     /** resolver esta chingadera */
     const figuresContainers = document.querySelectorAll(".modal-desk-class");
-    
+
     const arrfiguresContainers = Array.from(figuresContainers);
     console.log(arrfiguresContainers)
     console.log(gifsResultArray)
     gifsResultArray.forEach(item => {
         item.addEventListener("mouseenter", (event) => {
             const modal = event.target.nextElementSibling;
-            modal.style.display = "block";
+            if (widthScreen >= 1024) {
+                modal.style.display = "block";
+            };
+            window.addEventListener("resize", () => {
+                widthScreen = window.innerWidth;
+                if (widthScreen < 1024) {
+                    modal.style.display = "none";
+                };
+            });
         });
     });
     /** */
@@ -82,9 +102,8 @@ const createCardsForSearch = array => {
         item.addEventListener("mouseleave", (event) => {
             /* const icons = event.target.children[0];
             const captions = event.target.children[1]; */
-
             const modal = event.target;
-            modal.style.display = "none";    
+            modal.style.display = "none";
         });
     });
 };
@@ -122,6 +141,8 @@ const createAndPaintSuggestions = async (inValue) => {
             searchContainer.classList.add('passive-styles');
             searchContainer.classList.remove('active-styles');
             isX = false;
+            imgContainer.innerHTML = "";
+            searchGIF(suggestion);
         });
     });
 
@@ -145,12 +166,18 @@ const createAndPaintSuggestions = async (inValue) => {
 };
 
 /** Llama a la API de GIPHY para realizar una busqueda */
-const searchGIF = async (userQuery) => {
+export const searchGIF = async (userQuery) => {
     const baseURL = "https://api.giphy.com/v1/gifs/search?";
     const apikey = "isa5RTREAjmlL4Sr9iYEx9g5QycePeF2";
     const query = userQuery;
-    const limit = 12 * verMasCounter;
-    const endpoint = `${baseURL}api_key=${apikey}&q=${query}&limit=${limit}`;
+    const limit = 12;
+    let offset = 0;
+    if(verMasCounter === 1) {
+        
+    } else {
+        offset = limit * (verMasCounter-1);
+    }
+    const endpoint = `${baseURL}api_key=${apikey}&q=${query}&limit=${limit}&offset=${offset}`;
 
     try {
         const response = await fetch(endpoint);
@@ -239,7 +266,8 @@ searchIcon.addEventListener("click", () => {
 /** */
 verMasBtn.addEventListener("click", () => {
     const valuetoSearch = wordContainer.innerHTML;
-    imgContainer.innerHTML = "";
+    console.log("counter blabla " + verMasCounter)
+    
     verMasCounter++;
     searchGIF(valuetoSearch);
 });

@@ -1,24 +1,24 @@
 footer {
-  
   section {
     display: flex;
     flex-direction: column;
-    
-    font-family: 'Montserrat', sans-serif;
+
+    font-family: "Montserrat", sans-serif;
     font-size: 13px;
     font-weight: 400;
     letter-spacing: 0;
-    
+
     article {
       display: flex;
       flex-direction: column;
       align-items: center;
-      
-      p {
-        padding-top: 48px;
-        color: var(--black-color-for-words);
 
-        
+      p {
+        font-size: 15px;
+
+        letter-spacing: 0;
+
+        color: var(--black-color-for-words);
       }
 
       #social-networks {
@@ -33,8 +33,13 @@ footer {
 
     #copyR {
       text-align: center;
-      
-      margin-top: 45px;
+
+      font-size: 14px;
+
+      margin-top: 46px;
+
+      letter-spacing: 0;
+      line-height: 20px;
 
       color: var(--black-color-for-words);
 
@@ -61,58 +66,56 @@ footer {
     section {
       display: flex;
       flex-direction: row;
-      
+
       margin-top: 50px;
-  
+
       article {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        
+
         margin-left: 11%;
 
         p {
           padding-top: 0px;
           width: fit-content;
-          
+
           color: var(--black-color-for-words);
           width: 80%;
           margin-right: 0px;
-          
         }
-  
+
         #social-networks {
           display: flex;
           justify-content: space-between;
-        
+
           width: 80px;
-  
+
           margin-top: 0px;
         }
       }
-  
+
       #copyR {
         text-align: center;
-        
+
         margin-top: 0px;
         margin-left: 50%;
         margin-right: 10%;
-        
+
         color: var(--black-color-for-words);
-        
+
         i {
           font-size: 12px;
         }
       }
     }
-  
+
     #end-bar {
       height: 5px;
       background: var(--bar-color);
-  
+
       margin-top: 20px;
     }
   }
-  
 }

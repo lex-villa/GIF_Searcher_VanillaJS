@@ -76,12 +76,12 @@
 
             <article id="trending">
                 <h2>Trending:</h2>
-                <ul>
-                    <li><a href="#">Reactions,</a></li>
-                    <li><a href="#">Entertainment,</a></li>
-                    <li><a href="#">Sports,</a></li>
-                    <li><a href="#">Stickers,</a></li>
-                    <li><a href="#">Artists</a></li>
+                <ul id="trending-list">
+                    <li><a href="#" class="trending-item">Reactions,</a></li>
+                    <li><a href="#" class="trending-item">Entertainment,</a></li>
+                    <li><a href="#" class="trending-item">Sports,</a></li>
+                    <li><a href="#" class="trending-item">Stickers,</a></li>
+                    <li><a href="#" class="trending-item">Artists</a></li>
                 </ul>
             </article>
         </section>
@@ -121,25 +121,52 @@
             </div>
 
             <div id="caption-results-desk">
-                <p id="userCaption-id" class="userCaption">User</p>
-                <p id="tituloCaption-id" class="tituloCaption">Titulo GIFO</p>
+                <p id="userCaptionDesk-id" class="userCaption">User</p>
+                <p id="tituloCaptionDesk-id" class="tituloCaption">Titulo GIFO</p>
             </div>
         </div>
         <!-- Modal for Desktop gifs results ENDS -->
         <section id="trendingGIFOS">
             <h2>Trending GIFOS</h2>
-            <p>Mira los últimos GIFOS de nuestra comunidad.</p>
+            <p class="pTagTrends">Mira los últimos GIFOS de nuestra comunidad.</p>
+            <button class="btn-slider-left"><</button>
             <figure id="trendings-results-container">
-                <img src="https://via.placeholder.com/300" class="trending-results-styles">
-                <img src="https://via.placeholder.com/300" class="trending-results-styles">
-                <img src="https://via.placeholder.com/300" class="trending-results-styles">
-                <img src="https://via.placeholder.com/300" class="trending-results-styles">
-                <img src="https://via.placeholder.com/300" class="trending-results-styles">
-                <img src="https://via.placeholder.com/300" class="trending-results-styles">
-                <img src="https://via.placeholder.com/300" class="trending-results-styles">
-                <img src="https://via.placeholder.com/300" class="trending-results-styles">
+                <!-- <figure class="figure-container-trends">
+                    <img src="https://via.placeholder.com/300" id="img-trend-content" class="trending-results-styles">
+                    <div id="modal-trends" class="modal-trends-class" style="display: block;">
+                        <div id="icons-result-modalTrends">
+                            <figure class="figure-icons-modalTrends"><img src="./images/icon-fav-hover.svg" alt="icon"></figure>
+                            <figure class="figure-icons-modalTrends"><img src="./images/icon-download.svg" alt="icon"></figure>
+                            <figure class="figure-icons-modalTrends"><img src="./images/icon-max.svg" alt="icon"></figure>
+                        </div>
+            
+                        <div id="caption-results-modalTrends">
+                            <p id="userCaptionTrends-id" class="userCaptionTrends">User</p>
+                            <p id="tituloCaptionTrends-id" class="tituloCaptionTrends">Titulo GIFO</p>
+                        </div>
+                    </div>
+                </figure>
+ -->
+                
+
+                
             </figure>
+            <button class="btn-slider-right">></button>
         </section>
+        <!-- Modal Trends -->
+        <div id="modal-trends" class="modal-trends-class" style="display: block;">
+            <div id="icons-result-modalTrends">
+                <figure class="figure-icons-modalTrends"><img src="./images/icon-fav-hover.svg" alt="icon"></figure>
+                <figure class="figure-icons-modalTrends"><img src="./images/icon-download.svg" alt="icon"></figure>
+                <figure class="figure-icons-modalTrends"><img src="./images/icon-max.svg" alt="icon"></figure>
+            </div>
+
+            <div id="caption-results-modalTrends">
+                <p id="userCaptionTrends-id" class="userCaptionTrends">User</p>
+                <p id="tituloCaptionTrends-id" class="tituloCaptionTrends">Titulo GIFO</p>
+            </div>
+        </div>
+        <!-- Modal Trends ENDS -->
     </main>
 
     <footer>
@@ -163,6 +190,7 @@
     <!-- Scripts -->
     <script src="/scripts/darkModeAndBurguerMenu.js" type="module"></script>
     <script src="./scripts/searchbar.js" type="module"></script>
+    <script src="./scripts/trendings.js" type="module"></script>
     <script src="/scripts/app.js" type="module"></script>
 </body>
 

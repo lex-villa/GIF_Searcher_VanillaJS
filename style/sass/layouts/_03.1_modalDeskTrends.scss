@@ -1,21 +1,19 @@
-#search-results-container {
-  figure {
-    height: 120px;
-  }
-  #img-content {
-    position: relative;
-    z-index: -5;
-  }
-  #modal-desk {
+#trendings-results-container {
+  
+  /* #img-trend-content {
+   
+  } */
+  #modal-trends {
     display: block;
     opacity: 0.7;
     background: #572ee5;
 
     position: relative;
     z-index: 9;
-    top: -200px;
-    height: 200px;
-    #icons-result-desk {
+    top: -275px;
+    height: 273px;
+
+    #icons-result-modalTrends {
       position: relative;
       z-index: 10;
       top: 5px;
@@ -23,7 +21,7 @@
       display: flex;
       justify-content: flex-end;
 
-      .figure-icons {
+      .figure-icons-modalTrends {
         opacity: 0.7;
         background: #ffffff;
         border-radius: 6px;
@@ -40,19 +38,22 @@
         cursor: pointer;
       }
     }
-    #caption-results-desk {
+
+    #caption-results-modalTrends {
       position: relative;
       z-index: 10;
-      top: 80px;
+      top: 120px;
 
-      margin-left: 10px;
-      #userCaptionDesk-id {
+      margin-left: 20px;
+
+      #userCaptionTrends-id {
         margin-top: 5px;
-        margin-bottom: 10px;
+        margin-bottom: 6px;
         font-size: 15px;
         color: #ffffff;
       }
-      #tituloCaptionDesk-id {
+
+      #tituloCaptionTrends-id {
         font-size: 16px;
         font-weight: 600;
         color: #ffffff;
@@ -61,10 +62,10 @@
   }
 }
 
+
+/******************************************************************************/
+
+/***** DESKTOP VERSION ******/
 @media screen and (min-width: 1024px) {
-  #search-results-container {
-    figure {
-      height: 200px;
-    }
-  }
+  
 }

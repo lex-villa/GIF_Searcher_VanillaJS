@@ -232,7 +232,7 @@
         height: 50px;
 
         position: relative;
-        z-index: 5;
+        z-index: 6;
 
         &::placeholder {
           padding-left: 55px;
@@ -247,7 +247,7 @@
       
         margin-left: 68%; //86%
   
-        z-index: 5;
+        z-index: 6;
       }
     }
   
@@ -255,7 +255,7 @@
       #searchIcon {
         margin-left: 86%; //86%
   
-        z-index: 5;
+        z-index: 6;
       }
     }
   }
@@ -271,6 +271,9 @@
     margin-top: 30px;
 
     text-align: center;
+
+    position: relative;
+    z-index: 6;
 
     h2 {
       font-size: 16px;
