@@ -1,0 +1,211 @@
+/***** MOBILE VERSION ******/
+header {
+    width: 100%;
+    height: fit-content;
+
+    position: absolute;
+    z-index: 5;
+
+    #decorative-start-bar {
+        height: 5px;
+        background: var(--bar-color);
+    }
+
+    figure {
+        display: block;
+        float: left;
+    
+        width: 52.8px;
+        height: 52.8px;
+    
+        margin-top: 29px;
+        margin-left: 22px;
+        margin-bottom: 17.2px;
+    
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    
+      /** **/
+    #burguer-icon {
+        margin-top: 47px;
+        margin-right: 26px;
+    
+        width: 15px;
+        height: 14px;
+    
+        float: right;
+        
+        cursor: pointer;
+    }
+    
+      /** **/
+    #ul-menu {
+        clear: both;
+    
+        height: 0;
+    
+        list-style: none;
+    
+        background: var(--background-color-ul-menu);
+    
+        display: flex;
+        flex-direction: column;
+    
+        overflow: hidden;
+    
+        #button-crea-gif {
+            display: none;
+        }
+    
+        li {
+            text-align: center;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 60px;
+    
+            height: 60px;
+    
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+    
+            &:nth-child(1) {
+                margin-top: 17px;
+            }
+    
+            a {
+                text-decoration: none;
+    
+                color: var(--white-color-for-words);
+            }
+            hr {
+                width: 41px;
+                margin-top: -7px;
+                opacity: 0.5;
+            }
+        }
+    }
+}
+
+/** **/
+
+
+
+
+
+
+
+
+
+/******************************************************************************/
+/***** DESKTOP VERSION ******/
+@media screen and (min-width: 1170px) {
+    /** **/
+    header {
+        figure {
+            width: 59.1px;
+            height: 59.1px;
+        
+            margin-top: 23px;
+            margin-left: 156px;
+            margin-bottom: 12.9px;
+        }
+        
+        /** **/
+        #burguer-icon {
+            display: none;
+        }
+        
+        /** **/
+        #navbar {
+            display: flex;
+            justify-content: flex-end;
+    
+            height: 100%;
+        }
+        
+        /** **/
+        #ul-menu {
+            clear: both;
+        
+            width: 45%;
+            height: fit-content;
+        
+            margin-top: 23px;
+            margin-right: 156px;
+        
+            list-style: none;
+        
+            background: none;
+        
+            overflow: hidden;
+        
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        
+            #button-crea-gif {
+                display: block;
+                width: 54px;
+                height: 54px;
+        
+                border: 1px solid var(--purpleBlue-color-border);
+                border-radius: 30px;
+        
+                background: var(--white);
+        
+                display: flex;
+                justify-content: center;
+                align-items: center;
+    
+                margin-left: 53px;
+    
+                a {
+                    width: fit-content;
+                    height: fit-content;
+            
+                    img {
+                        width: fit-content;
+                        height: fit-content;
+                    }
+                }
+            }
+        
+            li {
+                display: block;
+
+                text-align: center;
+        
+                height: 60px;
+        
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+        
+                &:nth-child(1) {
+                    margin-top: 0px;
+                }
+        
+                a {
+                    font-size: 13px;
+                    font-weight: 700;
+        
+                    color: var(--purpleBlue-color-text);
+        
+                    text-decoration: none;
+                    text-transform: uppercase;
+        
+                    letter-spacing: 0;
+                }
+        
+                hr {
+                    display: none;
+                }
+            }
+        }
+    }
+    
+}

@@ -5,118 +5,173 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style/css/reset.css">
-    <link rel="stylesheet" href="style/css/main.css">
+    <link rel="stylesheet" href="./styles/css/reset.css">
+    <link rel="stylesheet" href="./styles/css/main.css">
     <link rel="stylesheet" href="" id="cssDarks">
-
-    <script src="https://kit.fontawesome.com/7270623351.js" crossorigin="anonymous"></script>
-
-    <title>GifOS</title>
+    <title>GIFOS</title>
 </head>
 
 <body>
 
+    <!-- This HTML is for when a GIF is clicked, it shows in big -->
+    <div id="myModal" class="modal">
+        <img src="./images/close.svg" alt="close-btn" id="close-btn-modal-id" class="close-btn-modal">
+        <img src="https://via.placeholder.com/300" id="modal-content-id" class="modal-content" alt="image">
+        <div class="captions">
+            <div class="info">
+                <p id="userCaption-id" class="userCaption">User</p>
+                <p id="tituloCaption-id" class="tituloCaption">Titulo GIFO</p>
+            </div>
+            <div class="icons">
+                <img src="./images/icon-fav-hover.svg" alt="like-icon" class="like-icon">
+                <img src="./images/icon-download.svg" alt="download-icon" class="download-icon">
+            </div>
+        </div>
+    </div>
+    <!--  -->
+
+
     <header>
-        <div id="start-bar"></div>
-        <figure id="logo">
-            <img src="./images/logo-mobile.svg" alt="Logo" id="logo-img">
+        <div id="decorative-start-bar"></div>
+        <figure>
+            <img src="./images/logo-mobile.svg" alt="logo" id="logo-img">
         </figure>
-        <!-- Burguer menu -->
-        <img src="./images/burger.svg" alt="burguer menu" id="burguer-icon">
+        <!-- Burger Menu -->
+        <img src="./images/burger.svg" alt="burguer-icon" id="burguer-icon">
         <nav id="navbar">
             <ul id="ul-menu">
                 <li><a href="#" id="dark-mode">Modo Nocturno</a>
-                    <hr>
+                    <hr class="hr-ul-separator">
                 </li>
                 <li><a href="#">Favoritos</a>
-                    <hr>
+                    <hr class="hr-ul-separator">
                 </li>
                 <li><a href="#">Mis GIFOS</a>
-                    <hr>
+                    <hr class="hr-ul-separator">
                 </li>
-                <li id="button-crea-gif"><a href="#"><img src="./images/button-crear-gifo.svg" alt="button-create-gifo"
-                            id="create-gifo"></a></li>
+                <li id="button-crea-gif"><a href="#"><img src="./images/button-crear-gifo.svg" alt="button-crear-gifo"
+                            id="create-gifo"></a>
+                </li>
             </ul>
         </nav>
-        <!-- Burguer menu ENDS -->
+        <!-- Burger Menu Ends -->
     </header>
 
     <main>
         <section id="cover-page">
-            <h2>Inspírate, busca, guarda, y crea los mejores <span>GIFOS<span></h2>
+            <h2>Inspírate, busca, guarda, y crea los mejores <span>GIFOS</span></h2>
 
-            <figure>
-                <img src="./images/ilustra_header.svg" alt="cover figure">
+            <figure id="ilustra-header">
+                <img src="./images/ilustra_header.svg" alt="ilustra_header">
             </figure>
             <div id="searchBox" class="passive-styles">
-                <input type="search" id="search-input" placeholder="Busca GIFOS y más">
-                <img src="./images/icon-search.svg" alt="search-icon" id="searchIcon"> 
-                <!-- <img src="./images/icon-search-gray.svg" alt="search-icon" id="searchIcon" class="searchIconGray"> -->
-                
+                <div id="search-input-container">
+                    <input type="search" id="seacrh-input" placeholder="Busca GIFOS y más">
+                    <img src="./images/icon-search.svg" alt="icon-search" id="search-icon">
+                </div>
                 <ul id="recommendations">
-                    
+                    <!-- This will fill dynamically with JS -->
+                    <!-- <li class="suggestionCreated"><img src="./images/icon-search-gray.svg" alt="search-icon" class="searchIconGray">sugerencia</li>
+                    <li class="suggestionCreated"><img src="./images/icon-search-gray.svg" alt="search-icon" class="searchIconGray">sugerencia</li>
+                    <li class="suggestionCreated"><img src="./images/icon-search-gray.svg" alt="search-icon" class="searchIconGray">sugerencia</li>
+                    <li class="suggestionCreated"><img src="./images/icon-search-gray.svg" alt="search-icon" class="searchIconGray">sugerencia</li> -->
                 </ul>
             </div>
 
             <article id="trending">
                 <h2>Trending:</h2>
-                <ul>
-                    <li><a href="#">Reactions,</a></li>
-                    <li><a href="#">Entertainment,</a></li>
-                    <li><a href="#">Sports,</a></li>
-                    <li><a href="#">Stickers,</a></li>
-                    <li><a href="#">Artists</a></li>
+                <ul id="trending-list">
+                    <li><a href="#" class="trending-item">Reactions,</a></li>
+                    <li><a href="#" class="trending-item">Entertainment,</a></li>
+                    <li><a href="#" class="trending-item">Sports,</a></li>
+                    <li><a href="#" class="trending-item">Stickers,</a></li>
+                    <li><a href="#" class="trending-item">Artists</a></li>
                 </ul>
             </article>
         </section>
 
+        <!-- Section hidden by default -->
         <section id="search-results">
             <hr id="separatorSearchResults">
-            <h2 id="searched-thing"></h2>
+            <h2 id="searched-thing">Busqueda</h2>
             <figure id="search-results-container">
-        
+                <!-- This is the HTML resultant per GIF -->
+                <!--  
+                <figure class="figureDeskContainer">
+                    <img src="https://via.placeholder.com/300" class="search-results-styles">
+                    <div id="modal-desk" class="modal-desk-class">
+                        <div id="icons-result-desk" class="icons-section-hoverDesk">
+                            <figure class="figure-icons"><img src="./images/icon-fav-hover.svg" alt="icon"></figure>
+                            <figure class="figure-icons"><img src="./images/icon-download.svg" alt="icon"></figure>
+                            <figure class="figure-icons"><img src="./images/icon-max.svg" alt="icon" class="btn-img-icon-hover"></figure>
+                        </div>
+
+                        <div id="caption-results-desk" class="caption-section-hoverDesk">
+                            <p id="userCaptionDesk-id" class="userCaption-desk">User</p>
+                            <p id="tituloCaptionDesk-id" class="tituloCaption-desk">Titulo GIFO</p>
+                        </div>
+                    </div>
+                </figure>
+                -->
             </figure>
             <button id="ver-mas-btn">VER MÁS</button>
         </section>
 
         <section id="trendingGIFOS">
             <h2>Trending GIFOS</h2>
-            <p>Mira los últimos GIFOS de nuestra comunidad.</p>
-            <figure id="trendings-results-container">
-                <img src="https://via.placeholder.com/300" class="trending-results-styles">
-                <img src="https://via.placeholder.com/300" class="trending-results-styles">
-                <img src="https://via.placeholder.com/300" class="trending-results-styles">
-                <img src="https://via.placeholder.com/300" class="trending-results-styles">
-                <img src="https://via.placeholder.com/300" class="trending-results-styles">
-                <img src="https://via.placeholder.com/300" class="trending-results-styles">
-                <img src="https://via.placeholder.com/300" class="trending-results-styles">
-                <img src="https://via.placeholder.com/300" class="trending-results-styles">
-            </figure>
+            <p id="p-tag-trends">Mira los últimos GIFOS de nuestra comunidad.</p>
+
+            <div id="slider-container">
+                <button id="btn-slider-left"><input type="image" src="./images/button-left.svg"
+                        alt="button-left"></button>
+
+                <figure id="trending-results-container-GIFOS">
+                    <!-- This is the HTML resultant per GIF -->
+                    <!--
+                    <figure class="figureTrendingContainer">
+                        <img src="https://via.placeholder.com/300" class="search-resultsTrendingGifo-styles">
+                        <div id="modal-TrendingGifo" class="modal-TrendingGifo-class">
+                            <div id="icons-result-TrendingGifo" class="icons-section-hoverTrendingGifo">
+                                <figure class="figure-icons-TrendingGifo"><img src="./images/icon-fav-hover.svg"
+                                        alt="icon">
+                                </figure>
+                                <figure class="figure-icons-TrendingGifo"><img src="./images/icon-download.svg"
+                                        alt="icon">
+                                </figure>
+                                <figure class="figure-icons-TrendingGifo"><img src="./images/icon-max.svg" alt="icon"
+                                        class="btn-img-icon-TrendingGifo"></figure>
+                            </div>
+
+                            <div id="caption-results-TrendingGifo" class="caption-section-hoverTrendingGifo">
+                                <p id="userCaptionTrendingGifo-id" class="userCaption-TrendingGifo">User</p>
+                                <p id="tituloCaptionTrendingGifo-id" class="tituloCaption-TrendingGifo">Titulo GIFO</p>
+                            </div>
+                        </div>
+                    </figure> -->
+
+
+                </figure>
+                <button id="btn-slider-right"><input type="image" src="./images/button-right.svg"
+                        alt="button-left"></button>
+            </div>
         </section>
     </main>
 
     <footer>
-        <section>
-            <article>
-                <p>Compartir en:</p>
-                <div id="social-networks">
-                    <figure><a href="www.facebook.com"><img src="./images/icon_facebook.svg" alt="facebook icon"></a>
-                    </figure>
-                    <figure><a href=www.twitter.com><img src="./images/icon-twitter.svg" alt="twitter icon"></a>
-                    </figure>
-                    <figure><a href="www.instagram.com"><img src="./images/icon_instagram.svg" alt="instagram icon"></a>
-                    </figure>
-                </div>
-            </article>
-            <p id="copyR"><span><i class="far fa-copyright"></i></span> GIFOS 2020 All Rights Reserved.</p>
-        </section>
-        <div id="end-bar"></div>
+        <p id="p-1">Compartir en:</p>
+        <div id="social-networks">
+            <a href="http://"><img src="./images/icon_facebook.svg" alt="icon-facebook"></a>
+            <a href="http://"><img src="./images/icon-twitter.svg" alt="icon-twitter"></a>
+            <a href="http://"><img src="./images/icon_instagram.svg" alt="icon-instagram"></a>
+        </div>
+        <p id="p-2">© GIFOS 2020 All Rights Reserved.</p>
     </footer>
 
     <!-- Scripts -->
-    <script src="/scripts/darkModeAndBurguerMenu.js" type="module"></script>
-    <script src="./scripts/searchbar.js" type="module"></script>
-    <script src="/scripts/app.js" type="module"></script>
+    <script src="./scripts/burguerMenu_darkMode.js" type="module"></script>
+    <script src="./scripts/trendings.js" type="module"></script>
+    <script src="./scripts/searcher.js" type="module"></script>
+
 </body>
 
 </html>

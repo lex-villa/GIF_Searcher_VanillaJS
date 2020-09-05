@@ -1,0 +1,187 @@
+.modal {
+    position: fixed;
+    z-index: 100;
+    overflow: auto;
+
+    width: 100%;
+    height: 100%;
+
+    background: var(--modal-background);
+    
+    display: none;
+
+    .close-btn-modal {
+        display: block;
+
+        margin-left: 85.8%;
+        margin-top: 64px;
+
+        cursor: pointer;
+    }
+
+    .modal-content {
+        width: 318px;
+        height: 245px;
+    
+        margin: 0 auto;
+        margin-top: 78px;
+    
+        display: block;
+    }
+
+    .captions {
+        width: 83%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 0.5fr;
+        margin-top: 14px;
+        margin-left: 35px;
+
+        .info {
+            .userCaption {
+                width: fit-content;
+
+                font-size: 15px;
+                font-weight: 500;
+
+                margin-top: 14px;
+
+                margin-bottom: 8px;
+        
+            }
+            .tituloCaption {
+                width: fit-content;
+
+                font-size: 16px;
+                font-weight: 700;
+            }
+        }
+
+        .icons {
+            display: grid;
+            grid-template-columns: 50px 50px;
+            align-items: center;
+            justify-items: center;
+            .like-icon {
+                width: 20px;
+                height: 18px;
+
+                cursor: pointer;
+            }
+            .download-icon {
+                border: 1px solid #9cafc3;
+                border-radius: 6px;
+        
+                padding: 5px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
+
+/******************************************************************************/
+
+/***** DESKTOP VERSION ******/
+@media screen and (min-width: 1025px) {
+    .modal {
+        position: fixed;
+        z-index: 100;
+        overflow: auto;
+    
+        width: 100%;
+        height: 100vh;
+    
+        background: var(--modal-background);
+    
+        display: none;
+    
+        .close-btn-modal {
+            display: block;
+    
+            margin-left: 85.8%;
+            margin-top: 66.4px;
+    
+            cursor: pointer;
+        }
+    
+        .modal-content {
+            width: 695px;
+            height: 385px;
+        
+            margin: 0 auto;
+            margin-top: 78.4px;
+        
+            display: block;
+        }
+    
+        .captions {
+            width: 50%;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 0.5fr;
+            margin-top: 27px;
+            margin-left: 24.7%;
+            margin-bottom: 100px;
+    
+            .info {
+                margin-left: -5%;
+                .userCaption {
+                    width: fit-content;
+    
+                    font-size: 15px;
+                    font-weight: 500;
+    
+                    margin-top: 14px;
+    
+                    margin-bottom: 8px;
+            
+                }
+                .tituloCaption {
+                    width: fit-content;
+    
+                    font-size: 16px;
+                    font-weight: 700;
+                }
+            }
+    
+            .icons {
+                display: grid;
+                grid-template-columns: 50px 50px;
+                align-items: center;
+                justify-items: end;
+    
+                margin-left: 120px;
+                .like-icon {
+                    width: 20px;
+                    height: 18px;
+
+                    border: 1px solid #CED7E1;
+                    border-radius: 6px;
+                    opacity: 0.5;
+
+                    padding: 6px;
+
+                    cursor: pointer;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+                .download-icon {
+                    border: 1px solid #CED7E1;
+                    border-radius: 6px;
+                    opacity: 0.5;
+            
+                    padding: 5px;
+                    cursor: pointer;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
