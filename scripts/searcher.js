@@ -86,13 +86,45 @@ const createAndPaintSuggestions = async (inValue) => {
 
         containerSuggestions.appendChild(liTag)
     });
+
+    /** when click to a suggestion, it trigger a search */
+    const suggestionsElement = document.querySelectorAll('.suggestionCreated')
+
+    suggestionsElement.forEach(element => {
+        element.addEventListener('click', (event) => {
+            const suggestion = event.target.childNodes[1].data.trim();
+            input.value = suggestion;
+            containerSuggestions.innerHTML = "";
+
+            completeInputContainer.classList.add('passive-styles');
+            completeInputContainer.classList.remove('active-styles');
+            isIconX = false;
+            searchResultsContainer.innerHTML = "";
+            createCardsForSearch(suggestion);
+        })
+    })
 }
 
 /** */
 export const createCardsForSearch = async inValue => {
     const searchResult = await searchGIF(inValue)
+    console.log(searchResult)
     searchSection.style.display = 'block'
     searchedthing.innerHTML = inValue
+
+    /** To  get Blob for download*/
+    const getImage = async (urlImage) => {
+        try {
+            let response = await fetch(urlImage)
+            let gifBlob = await response.blob()
+            console.info(gifBlob)
+            return gifBlob
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    /** */
 
     searchResult.forEach(gifElement => {
         const imageURL = gifElement.images.fixed_height_downsampled.url
@@ -114,18 +146,26 @@ export const createCardsForSearch = async inValue => {
         divIconSection.classList.add("icons-section-hoverDesk")
 
         const figureIconLike = document.createElement("figure")
-        const figureIconDownload = document.createElement("figure")
+        const figureIconDownload = document.createElement("a")
+        getImage(imageURL).then((blob => {
+            const urlB = URL.createObjectURL(blob)
+
+            figureIconDownload.href = urlB
+            figureIconDownload.download = 'myGiphy.gif'
+        })).catch(console.error)
         const figureIconMax = document.createElement("figure")
         figureIconLike.classList.add("figure-icons")
         figureIconDownload.classList.add("figure-icons")
         figureIconMax.classList.add("figure-icons")
+
         const iconLikeImg = document.createElement("img")
         const iconDownLoadImg = document.createElement("img")
         const iconMaxImg = document.createElement("img")
         iconLikeImg.src = "./images/icon-fav-hover.svg"
         iconDownLoadImg.src = "./images/icon-download.svg"
+        iconDownLoadImg.classList.add('btn-img-iconDownload-hover')
         iconMaxImg.src = "./images/icon-max.svg"
-        iconMaxImg.classList.add('btn-img-icon-hover')
+        iconMaxImg.classList.add('btn-img-iconMax-hover')
 
         figureIconLike.appendChild(iconLikeImg)
         figureIconDownload.appendChild(iconDownLoadImg)
@@ -220,9 +260,9 @@ export const createCardsForSearch = async inValue => {
     })
 
     /** Section to add event listeners to the icon buttons in the hover cards */
-    const iconButtonsArray = document.querySelectorAll(".btn-img-icon-hover")
+    const iconMaxArray = document.querySelectorAll(".btn-img-iconMax-hover")
 
-    iconButtonsArray.forEach(icon => {
+    iconMaxArray.forEach(icon => {
         icon.addEventListener('click', (event) => {
             const imageToShow = event.srcElement.offsetParent.offsetParent.parentElement.childNodes[0].src
             const image = document.getElementById("modal-content-id")
@@ -245,9 +285,11 @@ export const createCardsForSearch = async inValue => {
             closeBtn.addEventListener("click", () => {
                 modal.style.display = "none"
                 bodyTag.style.overflow = 'visible'
-            }) 
+            })
         })
     })
+
+    
 }
 
 export const setValueTo1 = () => {

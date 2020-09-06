@@ -81,7 +81,20 @@ const searchTrendsGIFOS = async () => {
 /** */
 const createCardsTrendingGifos = async () => {
     const searchResultApi = await searchTrendsGIFOS()
-    console.log(searchResultApi)
+
+    /** To  get Blob for download*/
+    const getImage = async (urlImage) => {
+        try {
+            let response = await fetch(urlImage)
+            let gifBlob = await response.blob()
+            console.info(gifBlob)
+            return gifBlob
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    /** */
 
     searchResultApi.forEach(gifElement => {
         const imageURL = gifElement.images.fixed_height_downsampled.url
@@ -103,11 +116,18 @@ const createCardsTrendingGifos = async () => {
         divIconSection.classList.add("icons-section-hoverTrendingGifo")
 
         const figureIconLike = document.createElement("figure")
-        const figureIconDownload = document.createElement("figure")
+        const figureIconDownload = document.createElement("a")
+        getImage(imageURL).then((blob => {
+            const urlB = URL.createObjectURL(blob)
+
+            figureIconDownload.href = urlB
+            figureIconDownload.download = 'myGiphy.gif'
+        })).catch(console.error)
         const figureIconMax = document.createElement("figure")
         figureIconLike.classList.add("figure-icons-TrendingGifo")
         figureIconDownload.classList.add("figure-icons-TrendingGifo")
         figureIconMax.classList.add("figure-icons-TrendingGifo")
+
         const iconLikeImg = document.createElement("img")
         const iconDownLoadImg = document.createElement("img")
         const iconMaxImg = document.createElement("img")
@@ -217,7 +237,7 @@ createCardsTrendingGifos();
 /*************************************************************** */
 const sliderFunction = () => {
     const figureGIFO = document.getElementById('trending-results-container-GIFOS')
-    console.log(figureGIFO)
+    
     const carouselImagesNumber = 12 //number of gifs in the carousel
     let counterCarousel = 0;
     let size = 270 //width of the gif element + 29 of gap
