@@ -1,4 +1,4 @@
-#trendingGIFOS {
+ #trendingGIFOS {
     background: #F3F5F8;
     height: 430px;
 
@@ -32,54 +32,63 @@
         #btn-slider-left{
             display: none;
         }
-    
-        #trending-results-container-GIFOS {
-            display: flex;
-            column-gap: 22px;
+
+        #carousel-container {
+        
             margin-left: 22px;
-            
             overflow-x: auto;
             &::-webkit-scrollbar{
-                width: 0;
-                }
-    
-            .figureTrendingContainer {
-                
-                width: 243px;
-                height: 187px;
-                
-    
-                .search-resultsTrendingGifo-styles {
-                    width: 243px;
-                    height: 187px;
-                }
-    
-                .modal-TrendingGifo-class {
-                    display: none;
+            width: 0;
+            }
+            
+
+                #trending-results-container-GIFOS {
+                    display: flex;
+                    column-gap: 22px;
+                    margin-left: 22px;
                     
-                    position: relative;
-                    z-index: 5;
-                    top: -188px;
-                    height: inherit;
-                    .icons-section-hoverTrendingGifo {
-                        .figure-icons-TrendingGifo {
-                            img {
+                    
     
+                    .figureTrendingContainer {
+                        
+                        width: 243px;
+                        height: 187px;
+                        
+            
+                        .search-resultsTrendingGifo-styles {
+                            width: 243px;
+                            height: 187px;
+                        }
+            
+                        .modal-TrendingGifo-class {
+                            display: none;
+                            
+                            position: relative;
+                            z-index: 5;
+                            top: -188px;
+                            height: inherit;
+                            .icons-section-hoverTrendingGifo {
+                                .figure-icons-TrendingGifo {
+                                    img {
+            
+                                    }
+                                }
+                            }
+                        }
+            
+                        .caption-section-hoverTrendingGifo{
+                            .userCaption-TrendingGifo {
+            
+                            }
+                            .tituloCaption-TrendingGifo {
+            
                             }
                         }
                     }
                 }
-    
-                .caption-section-hoverTrendingGifo{
-                    .userCaption-TrendingGifo {
-    
-                    }
-                    .tituloCaption-TrendingGifo {
-    
-                    }
-                }
-            }
         }
+    
+        
     
         #btn-slider-right {
             display: none;
@@ -88,6 +97,8 @@
     
 }
 
+
+ 
 
 /******************************************************************************/
 
@@ -141,92 +152,108 @@
                     background-color: var(--purpleBlue-color-text)
                 }
             }
-        
-            #trending-results-container-GIFOS {
-                display: flex;
-                align-self: start;
-                column-gap: 29px;
-                margin-left: 0px;
-    
-                width: 79%;
-                margin: 0 auto;
+            
+            #carousel-container {
                 
+                width: 79%;
+                height: 275px;
+                margin: 0 auto;
+                border: 1px solid green;
+
+
                 overflow-x: auto;
                 &::-webkit-scrollbar{
-                    width: 0;
-                    }
-        
-                .figureTrendingContainer {
+                width: 0;
+                }
+            
+
+                #trending-results-container-GIFOS {
                     
-                    width: 357px;
+                    display: flex;
+                
+                    column-gap: 29px;
+                    margin-left: 0px;
+            
+                    width: 100%;
                     height: 275px;
+                    border: 1px solid red;
+                   
                     
-        
-                    .search-resultsTrendingGifo-styles {
+                    
+            
+                    .figureTrendingContainer {
+                        
                         width: 357px;
                         height: 275px;
-                    }
-        
-                    .modal-TrendingGifo-class {
-                        display: none;
-                        opacity: 0.7;
-                        background: #572ee5;
-                        position: relative;
-                        z-index: 5;
-                        top: -275px;
-                        height: inherit;
-                        .icons-section-hoverTrendingGifo {
+                        
+            
+                        .search-resultsTrendingGifo-styles {
+                            width: 357px;
+                            height: 275px;
+                        }
+            
+                        .modal-TrendingGifo-class {
+                            display: none;
+                            opacity: 0.7;
+                            background: #572ee5;
                             position: relative;
-                            z-index: 10;
-                            display: flex;
-                            justify-content: flex-end; 
-                            margin-right: 9px;
-                            padding-top: 4px;
-
-                            .figure-icons-TrendingGifo {
-                                opacity: 0.7;
-                                background: #ffffff;
-                                border-radius: 6px;
-                                border-radius: 6px;
-                                width: fit-content;
-                
-                                width: 32px;
-                                height: 32px;
-                
+                            z-index: 5;
+                            top: -275px;
+                            height: inherit;
+                            .icons-section-hoverTrendingGifo {
+                                position: relative;
+                                z-index: 10;
                                 display: flex;
-                                justify-content: center;
-                
-                                margin: 7px;
-                                cursor: pointer;
-
-                                &:hover {
-                                    opacity: 1;
+                                justify-content: flex-end; 
+                                margin-right: 9px;
+                                padding-top: 4px;
+    
+                                .figure-icons-TrendingGifo {
+                                    opacity: 0.7;
+                                    background: #ffffff;
+                                    border-radius: 6px;
+                                    border-radius: 6px;
+                                    width: fit-content;
+                    
+                                    width: 32px;
+                                    height: 32px;
+                    
+                                    display: flex;
+                                    justify-content: center;
+                    
+                                    margin: 7px;
+                                    cursor: pointer;
+    
+                                    &:hover {
+                                        opacity: 1;
+                                    }
+                                }
+                            }
+                            .caption-section-hoverTrendingGifo{
+                                position: relative;
+                                z-index: 10;
+                                top: 130px;
+                        
+                                margin-left: 18px;
+                                .userCaption-TrendingGifo {
+                                    margin-top: 5px;
+                                    margin-bottom: 10px;
+                                    font-size: 15px;
+                                    color: #ffffff;
+                                }
+                                .tituloCaption-TrendingGifo {
+                                    font-size: 16px;
+                                    font-weight: 600;
+                                    color: #ffffff;
                                 }
                             }
                         }
-                        .caption-section-hoverTrendingGifo{
-                            position: relative;
-                            z-index: 10;
-                            top: 130px;
-                    
-                            margin-left: 18px;
-                            .userCaption-TrendingGifo {
-                                margin-top: 5px;
-                                margin-bottom: 10px;
-                                font-size: 15px;
-                                color: #ffffff;
-                            }
-                            .tituloCaption-TrendingGifo {
-                                font-size: 16px;
-                                font-weight: 600;
-                                color: #ffffff;
-                            }
-                        }
+            
+                        
                     }
-        
-                    
                 }
             }
+            
         
             #btn-slider-right {
                 display: block;
@@ -242,5 +269,7 @@
                 }
             }
         }
-    }     
+    } 
+    
+    
 }

@@ -6,6 +6,9 @@ import { input, createCardsForSearch, searchResultsContainer, setValueTo1 } from
 /** HTML ELEMENTS */
 const trendingListItems = document.querySelectorAll('.trending-item')
 const searchResultsContainerTrendGIFOS = document.getElementById('trending-results-container-GIFOS')
+
+const btnLeft = document.getElementById('btn-slider-left')
+const btnRight = document.getElementById('btn-slider-right')
 /*************************************************************** */
 /** VARIABLES */
 
@@ -190,7 +193,7 @@ const createCardsTrendingGifos = async () => {
             const titleGifo = event.srcElement.offsetParent.nextSibling.lastChild.textContent
             const userCaption = document.getElementById("userCaption-id")
             const titleCaption = document.getElementById("tituloCaption-id")
-        
+
             userCaption.innerHTML = userGifo
             titleCaption.innerHTML = titleGifo
 
@@ -204,12 +207,43 @@ const createCardsTrendingGifos = async () => {
             closeBtn.addEventListener("click", () => {
                 modal.style.display = "none"
                 bodyTag.style.overflow = 'visible'
-            }) 
+            })
         })
     })
 }
 
 createCardsTrendingGifos();
+
+/*************************************************************** */
+const sliderFunction = () => {
+    const figureGIFO = document.getElementById('trending-results-container-GIFOS')
+    console.log(figureGIFO)
+    const carouselImagesNumber = 12 //number of gifs in the carousel
+    let counterCarousel = 0;
+    let size = 270 //width of the gif element + 29 of gap
+
+    /** Anima el Carousel en el eje X */
+    figureGIFO.style.transform = 'translateX(' + (-size * counterCarousel) + 'px)';
+
+    /** Mueven en Carousel en el eje X dependiendo que aprietes*/
+    btnRight.addEventListener('click', () => {
+        if (counterCarousel > carouselImagesNumber) return;
+
+        figureGIFO.style.transition = 'transform 0.4s ease-in-out';
+        counterCarousel++;
+        figureGIFO.style.transform = 'translateX(' + (-size * counterCarousel) + 'px)';
+    });
+
+    btnLeft.addEventListener('click', () => {
+        if (counterCarousel < 1) return;
+
+        figureGIFO.style.transition = 'transform 0.4s ease-in-out';
+        counterCarousel--;
+        figureGIFO.style.transform = 'translateX(' + (-size * counterCarousel) + 'px)';
+    });
+}
+
+sliderFunction()
 
 /*************************************************************** */
 /** EVENT LISTENERS */

@@ -1037,31 +1037,35 @@ header #ul-menu li hr {
   display: none;
 }
 
-#trendingGIFOS #slider-container #trending-results-container-GIFOS {
+#trendingGIFOS #slider-container #carousel-container {
+  margin-left: 22px;
+  overflow-x: auto;
+}
+
+#trendingGIFOS #slider-container #carousel-container::-webkit-scrollbar {
+  width: 0;
+}
+
+#trendingGIFOS #slider-container #carousel-container #trending-results-container-GIFOS {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-column-gap: 22px;
           column-gap: 22px;
   margin-left: 22px;
-  overflow-x: auto;
 }
 
-#trendingGIFOS #slider-container #trending-results-container-GIFOS::-webkit-scrollbar {
-  width: 0;
-}
-
-#trendingGIFOS #slider-container #trending-results-container-GIFOS .figureTrendingContainer {
+#trendingGIFOS #slider-container #carousel-container #trending-results-container-GIFOS .figureTrendingContainer {
   width: 243px;
   height: 187px;
 }
 
-#trendingGIFOS #slider-container #trending-results-container-GIFOS .figureTrendingContainer .search-resultsTrendingGifo-styles {
+#trendingGIFOS #slider-container #carousel-container #trending-results-container-GIFOS .figureTrendingContainer .search-resultsTrendingGifo-styles {
   width: 243px;
   height: 187px;
 }
 
-#trendingGIFOS #slider-container #trending-results-container-GIFOS .figureTrendingContainer .modal-TrendingGifo-class {
+#trendingGIFOS #slider-container #carousel-container #trending-results-container-GIFOS .figureTrendingContainer .modal-TrendingGifo-class {
   display: none;
   position: relative;
   z-index: 5;
@@ -1123,31 +1127,36 @@ header #ul-menu li hr {
   #trendingGIFOS #slider-container #btn-slider-left:hover {
     background-color: var(--purpleBlue-color-text);
   }
-  #trendingGIFOS #slider-container #trending-results-container-GIFOS {
+  #trendingGIFOS #slider-container #carousel-container {
+    width: 79%;
+    height: 275px;
+    margin: 0 auto;
+    border: 1px solid green;
+    overflow-x: auto;
+  }
+  #trendingGIFOS #slider-container #carousel-container::-webkit-scrollbar {
+    width: 0;
+  }
+  #trendingGIFOS #slider-container #carousel-container #trending-results-container-GIFOS {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-item-align: start;
-        align-self: start;
     -webkit-column-gap: 29px;
             column-gap: 29px;
     margin-left: 0px;
-    width: 79%;
-    margin: 0 auto;
-    overflow-x: auto;
+    width: 100%;
+    height: 275px;
+    border: 1px solid red;
   }
-  #trendingGIFOS #slider-container #trending-results-container-GIFOS::-webkit-scrollbar {
-    width: 0;
-  }
-  #trendingGIFOS #slider-container #trending-results-container-GIFOS .figureTrendingContainer {
+  #trendingGIFOS #slider-container #carousel-container #trending-results-container-GIFOS .figureTrendingContainer {
     width: 357px;
     height: 275px;
   }
-  #trendingGIFOS #slider-container #trending-results-container-GIFOS .figureTrendingContainer .search-resultsTrendingGifo-styles {
+  #trendingGIFOS #slider-container #carousel-container #trending-results-container-GIFOS .figureTrendingContainer .search-resultsTrendingGifo-styles {
     width: 357px;
     height: 275px;
   }
-  #trendingGIFOS #slider-container #trending-results-container-GIFOS .figureTrendingContainer .modal-TrendingGifo-class {
+  #trendingGIFOS #slider-container #carousel-container #trending-results-container-GIFOS .figureTrendingContainer .modal-TrendingGifo-class {
     display: none;
     opacity: 0.7;
     background: #572ee5;
@@ -1156,7 +1165,7 @@ header #ul-menu li hr {
     top: -275px;
     height: inherit;
   }
-  #trendingGIFOS #slider-container #trending-results-container-GIFOS .figureTrendingContainer .modal-TrendingGifo-class .icons-section-hoverTrendingGifo {
+  #trendingGIFOS #slider-container #carousel-container #trending-results-container-GIFOS .figureTrendingContainer .modal-TrendingGifo-class .icons-section-hoverTrendingGifo {
     position: relative;
     z-index: 10;
     display: -webkit-box;
@@ -1168,7 +1177,7 @@ header #ul-menu li hr {
     margin-right: 9px;
     padding-top: 4px;
   }
-  #trendingGIFOS #slider-container #trending-results-container-GIFOS .figureTrendingContainer .modal-TrendingGifo-class .icons-section-hoverTrendingGifo .figure-icons-TrendingGifo {
+  #trendingGIFOS #slider-container #carousel-container #trending-results-container-GIFOS .figureTrendingContainer .modal-TrendingGifo-class .icons-section-hoverTrendingGifo .figure-icons-TrendingGifo {
     opacity: 0.7;
     background: #ffffff;
     border-radius: 6px;
@@ -1187,22 +1196,22 @@ header #ul-menu li hr {
     margin: 7px;
     cursor: pointer;
   }
-  #trendingGIFOS #slider-container #trending-results-container-GIFOS .figureTrendingContainer .modal-TrendingGifo-class .icons-section-hoverTrendingGifo .figure-icons-TrendingGifo:hover {
+  #trendingGIFOS #slider-container #carousel-container #trending-results-container-GIFOS .figureTrendingContainer .modal-TrendingGifo-class .icons-section-hoverTrendingGifo .figure-icons-TrendingGifo:hover {
     opacity: 1;
   }
-  #trendingGIFOS #slider-container #trending-results-container-GIFOS .figureTrendingContainer .modal-TrendingGifo-class .caption-section-hoverTrendingGifo {
+  #trendingGIFOS #slider-container #carousel-container #trending-results-container-GIFOS .figureTrendingContainer .modal-TrendingGifo-class .caption-section-hoverTrendingGifo {
     position: relative;
     z-index: 10;
     top: 130px;
     margin-left: 18px;
   }
-  #trendingGIFOS #slider-container #trending-results-container-GIFOS .figureTrendingContainer .modal-TrendingGifo-class .caption-section-hoverTrendingGifo .userCaption-TrendingGifo {
+  #trendingGIFOS #slider-container #carousel-container #trending-results-container-GIFOS .figureTrendingContainer .modal-TrendingGifo-class .caption-section-hoverTrendingGifo .userCaption-TrendingGifo {
     margin-top: 5px;
     margin-bottom: 10px;
     font-size: 15px;
     color: #ffffff;
   }
-  #trendingGIFOS #slider-container #trending-results-container-GIFOS .figureTrendingContainer .modal-TrendingGifo-class .caption-section-hoverTrendingGifo .tituloCaption-TrendingGifo {
+  #trendingGIFOS #slider-container #carousel-container #trending-results-container-GIFOS .figureTrendingContainer .modal-TrendingGifo-class .caption-section-hoverTrendingGifo .tituloCaption-TrendingGifo {
     font-size: 16px;
     font-weight: 600;
     color: #ffffff;
