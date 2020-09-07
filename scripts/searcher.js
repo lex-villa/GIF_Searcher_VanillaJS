@@ -12,6 +12,7 @@ const completeInputContainer = document.getElementById('searchBox')
 /** Variables */
 var verMasCounter = 1;
 let isIconX = false
+let isHeartLikeActive = false
 
 /*************************************************************** */
 /** FUNCTIONS */
@@ -117,7 +118,7 @@ export const createCardsForSearch = async inValue => {
         try {
             let response = await fetch(urlImage)
             let gifBlob = await response.blob()
-           
+
             return gifBlob
 
         } catch (error) {
@@ -161,7 +162,24 @@ export const createCardsForSearch = async inValue => {
         const iconLikeImg = document.createElement("img")
         const iconDownLoadImg = document.createElement("img")
         const iconMaxImg = document.createElement("img")
-        iconLikeImg.src = "./images/icon-fav-hover.svg"
+
+        let arrayGifos = JSON.parse(localStorage.getItem("arrayGifos"))
+        if (arrayGifos === null) {
+            arrayGifos = []
+            localStorage.setItem("arrayGifos", JSON.stringify(arrayGifos))
+        }
+        if (arrayGifos.length === 0) {
+            iconLikeImg.src = "./images/icon-fav-hover.svg"
+        } else {
+            if (!arrayGifos.find(element => element.url === imageURL)) {
+                iconLikeImg.src = "./images/icon-fav-hover.svg"
+            } else {
+                iconLikeImg.src = "./images/icon-fav-active.svg"
+            }
+        }
+
+
+
         iconLikeImg.classList.add('btn-img-iconLike-hover')
         iconDownLoadImg.src = "./images/icon-download.svg"
         iconDownLoadImg.classList.add('btn-img-iconDownload-hover')
@@ -213,6 +231,23 @@ export const createCardsForSearch = async inValue => {
             const image = document.getElementById("modal-content-id")
             image.src = imageToShow
 
+            const iconLikeImg = document.querySelector('.like-icon')
+
+            let arrayGifos = JSON.parse(localStorage.getItem("arrayGifos"))
+            if (arrayGifos === null) {
+                arrayGifos = []
+                localStorage.setItem("arrayGifos", JSON.stringify(arrayGifos))
+            }
+            if (arrayGifos.length === 0) {
+                iconLikeImg.src = "./images/icon-fav-hover.svg"
+            } else {
+                if (!arrayGifos.find(element => element.url === imageToShow)) {
+                    iconLikeImg.src = "./images/icon-fav-hover.svg"
+                } else {
+                    iconLikeImg.src = "./images/icon-fav-active.svg"
+                }
+            }
+
             const indexOfElement = (gifsFromSearchResultArray.indexOf(event.target) - indexToHelp)
             const userGifo = searchResult[indexOfElement].source_tld
             const titleGifo = searchResult[indexOfElement].title
@@ -236,6 +271,9 @@ export const createCardsForSearch = async inValue => {
         /** */
         gifElement.addEventListener('mouseenter', (event) => {
             const modalElement = event.target.nextElementSibling
+            const url = event.target.currentSrc
+            const iconElement = event.target.nextElementSibling.childNodes[0].childNodes[0].childNodes[0]
+            console.log(event)
             let widthScreen = window.innerWidth
             if (widthScreen >= 1025) {
                 modalElement.style.display = "block"
@@ -246,6 +284,23 @@ export const createCardsForSearch = async inValue => {
                     modalElement.style.display = "none"
                 }
             })
+
+            let arrayGifos = JSON.parse(localStorage.getItem("arrayGifos"))
+
+            if (arrayGifos === null) {
+                arrayGifos = []
+                //arrayGifos.push({ url: url, user: user, title: title, })
+                localStorage.setItem("arrayGifos", JSON.stringify(arrayGifos))
+            } else {
+                if (!arrayGifos.find(element => element.url === url) || arrayGifos.length === 0) {
+                    iconElement.attributes[0].nodeValue = './images/icon-fav-hover.svg'
+                   
+                } else {
+                    const index = arrayGifos.findIndex(element => element.url === url)
+                    iconElement.attributes[0].nodeValue = './images/icon-fav-active.svg'
+                    
+                }
+            }
         })
     })
 
@@ -268,6 +323,22 @@ export const createCardsForSearch = async inValue => {
             const imageToShow = event.srcElement.offsetParent.offsetParent.parentElement.childNodes[0].src
             const image = document.getElementById("modal-content-id")
             image.src = imageToShow
+            const iconLikeImg = document.querySelector('.like-icon')
+
+            let arrayGifos = JSON.parse(localStorage.getItem("arrayGifos"))
+            if (arrayGifos === null) {
+                arrayGifos = []
+                localStorage.setItem("arrayGifos", JSON.stringify(arrayGifos))
+            }
+            if (arrayGifos.length === 0) {
+                iconLikeImg.src = "./images/icon-fav-hover.svg"
+            } else {
+                if (!arrayGifos.find(element => element.url === imageToShow)) {
+                    iconLikeImg.src = "./images/icon-fav-hover.svg"
+                } else {
+                    iconLikeImg.src = "./images/icon-fav-active.svg"
+                }
+            }
 
             const userGifo = event.srcElement.offsetParent.nextSibling.firstChild.textContent
             const titleGifo = event.srcElement.offsetParent.nextSibling.lastChild.textContent
@@ -293,6 +364,7 @@ export const createCardsForSearch = async inValue => {
     /** Store GIFOS in LocalStorage*/
     let iconLikeArray = document.querySelectorAll('.btn-img-iconLike-hover')
 
+
     iconLikeArray.forEach(icon => {
         icon.addEventListener('click', (event) => {
             const urlToSave = event.srcElement.offsetParent.offsetParent.parentElement.childNodes[0].src
@@ -300,19 +372,21 @@ export const createCardsForSearch = async inValue => {
             const title = event.srcElement.offsetParent.nextSibling.lastChild.textContent
 
             let arrayGifos = JSON.parse(localStorage.getItem("arrayGifos"))
-            
+
             if (arrayGifos === null) {
                 arrayGifos = []
-                arrayGifos.push({url: urlToSave, user: user, title: title,})
+                arrayGifos.push({ url: urlToSave, user: user, title: title, })
                 localStorage.setItem("arrayGifos", JSON.stringify(arrayGifos))
             } else {
                 if (!arrayGifos.find(element => element.url === urlToSave) || arrayGifos.length === 0) {
-                    arrayGifos.push({url: urlToSave, user: user, title: title,})
+                    arrayGifos.push({ url: urlToSave, user: user, title: title, })
                     localStorage.setItem("arrayGifos", JSON.stringify(arrayGifos))
+                    event.target.src = './images/icon-fav-active.svg'
                 } else {
                     const index = arrayGifos.findIndex(element => element.url === urlToSave)
                     arrayGifos.splice(index, 1)
                     localStorage.setItem("arrayGifos", JSON.stringify(arrayGifos))
+                    event.target.src = './images/icon-fav-hover.svg'
                 }
             }
         })
@@ -325,6 +399,8 @@ export const createCardsForSearch = async inValue => {
 export const setValueTo1 = () => {
     verMasCounter = 1
 }
+
+
 
 /*************************************************************** */
 /** EVENT LISTENERS */
@@ -383,25 +459,29 @@ searchIconBtn.addEventListener('click', () => {
 /** */
 const btnLikeModal = document.querySelector('.like-icon')
 
+
 btnLikeModal.addEventListener('click', (event) => {
     const urlToSave = event.srcElement.offsetParent.firstElementChild.nextElementSibling.currentSrc
     const user = event.target.offsetParent.nextSibling.nextElementSibling.offsetParent.firstElementChild.children[1].nextElementSibling.childNodes[1].childNodes[1].innerText
     const title = event.target.offsetParent.nextSibling.nextElementSibling.offsetParent.firstElementChild.children[1].nextElementSibling.childNodes[1].childNodes[1].nextElementSibling.innerText
-    
+
+
     let arrayGifos = JSON.parse(localStorage.getItem("arrayGifos"))
-            
-            if (arrayGifos === null) {
-                arrayGifos = []
-                arrayGifos.push({url: urlToSave, user: user, title: title,})
-                localStorage.setItem("arrayGifos", JSON.stringify(arrayGifos))
-            } else {
-                if (!arrayGifos.find(element => element.url === urlToSave) || arrayGifos.length === 0) {
-                    arrayGifos.push({url: urlToSave, user: user, title: title,})
-                    localStorage.setItem("arrayGifos", JSON.stringify(arrayGifos))
-                } else {
-                    const index = arrayGifos.findIndex(element => element.url === urlToSave)
-                    arrayGifos.splice(index, 1)
-                    localStorage.setItem("arrayGifos", JSON.stringify(arrayGifos))
-                }
-            }
+
+    if (arrayGifos === null) {
+        arrayGifos = []
+        arrayGifos.push({ url: urlToSave, user: user, title: title, })
+        localStorage.setItem("arrayGifos", JSON.stringify(arrayGifos))
+    } else {
+        if (!arrayGifos.find(element => element.url === urlToSave) || arrayGifos.length === 0) {
+            arrayGifos.push({ url: urlToSave, user: user, title: title, })
+            localStorage.setItem("arrayGifos", JSON.stringify(arrayGifos))
+            btnLikeModal.src = './images/icon-fav-active.svg'
+        } else {
+            const index = arrayGifos.findIndex(element => element.url === urlToSave)
+            arrayGifos.splice(index, 1)
+            localStorage.setItem("arrayGifos", JSON.stringify(arrayGifos))
+            btnLikeModal.src = './images/icon-fav-hover.svg'
+        }
+    }
 })

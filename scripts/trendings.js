@@ -131,7 +131,23 @@ const createCardsTrendingGifos = async () => {
         const iconLikeImg = document.createElement("img")
         const iconDownLoadImg = document.createElement("img")
         const iconMaxImg = document.createElement("img")
-        iconLikeImg.src = "./images/icon-fav-hover.svg"
+
+        let arrayGifos = JSON.parse(localStorage.getItem("arrayGifos"))
+        if (arrayGifos === null) {
+            arrayGifos = []
+            localStorage.setItem("arrayGifos", JSON.stringify(arrayGifos))
+        }
+        if (arrayGifos.length === 0) {
+            iconLikeImg.src = "./images/icon-fav-hover.svg"
+        } else {
+            if (!arrayGifos.find(element => element.url === imageURL)) {
+                iconLikeImg.src = "./images/icon-fav-hover.svg"
+                
+            } else {
+                iconLikeImg.src = "./images/icon-fav-active.svg"
+            }
+        }
+
         iconLikeImg.classList.add('btn-img-iconLike-hover-Trends')
         iconDownLoadImg.src = "./images/icon-download.svg"
         iconMaxImg.src = "./images/icon-max.svg"
@@ -174,9 +190,57 @@ const createCardsTrendingGifos = async () => {
     const gifsFromSearchResult = document.querySelectorAll('.search-resultsTrendingGifo-styles')
     const gifsFromSearchResultArray = Array.from(gifsFromSearchResult)
 
+   
+
     gifsFromSearchResultArray.forEach(gifElement => {
+        gifElement.addEventListener('click', event => {
+            const imageToShow = event.target.attributes.src.nodeValue
+            const image = document.getElementById("modal-content-id")
+            image.src = imageToShow
+
+            const iconLikeImg = document.querySelector('.like-icon')
+
+            let arrayGifos = JSON.parse(localStorage.getItem("arrayGifos"))
+            if (arrayGifos === null) {
+                arrayGifos = []
+                localStorage.setItem("arrayGifos", JSON.stringify(arrayGifos))
+            }
+            if (arrayGifos.length === 0) {
+                iconLikeImg.src = "./images/icon-fav-hover.svg"
+            } else {
+                if (!arrayGifos.find(element => element.url === imageToShow)) {
+                    iconLikeImg.src = "./images/icon-fav-hover.svg"
+                } else {
+                    iconLikeImg.src = "./images/icon-fav-active.svg"
+                }
+            }
+
+            const indexOfElement = (gifsFromSearchResultArray.indexOf(event.target))
+            const userGifo = searchResultApi[indexOfElement].source_tld
+            const titleGifo = searchResultApi[indexOfElement].title
+            const userCaption = document.getElementById("userCaption-id")
+            const titleCaption = document.getElementById("tituloCaption-id")
+            userCaption.innerHTML = userGifo
+            titleCaption.innerHTML = titleGifo
+
+            const modal = document.getElementById("myModal")
+            modal.style.display = "block"
+
+            const bodyTag = document.querySelector('body')
+            bodyTag.style.overflow = 'hidden'
+
+            const closeBtn = document.getElementById("close-btn-modal-id")
+            closeBtn.addEventListener("click", () => {
+                modal.style.display = "none"
+                bodyTag.style.overflow = 'visible'
+            })
+        })
+        /** */
         gifElement.addEventListener('mouseenter', (event) => {
             const modalElement = event.target.nextElementSibling
+            const url = event.target.currentSrc
+            const iconElement = event.target.nextElementSibling.childNodes[0].childNodes[0].childNodes[0]
+
             let widthScreen = window.innerWidth
             if (widthScreen >= 1025) {
                 modalElement.style.display = "block"
@@ -187,6 +251,23 @@ const createCardsTrendingGifos = async () => {
                     modalElement.style.display = "none"
                 }
             })
+
+            let arrayGifos = JSON.parse(localStorage.getItem("arrayGifos"))
+
+            if (arrayGifos === null) {
+                arrayGifos = []
+                //arrayGifos.push({ url: url, user: user, title: title, })
+                localStorage.setItem("arrayGifos", JSON.stringify(arrayGifos))
+            } else {
+                if (!arrayGifos.find(element => element.url === url) || arrayGifos.length === 0) {
+                    iconElement.attributes[0].nodeValue = './images/icon-fav-hover.svg'
+                    console.log('entra ii osea corazon vacio')
+                } else {
+                    const index = arrayGifos.findIndex(element => element.url === url)
+                    iconElement.attributes[0].nodeValue = './images/icon-fav-active.svg'
+                    console.log('entra else osea corazon lleno')
+                }
+            }
         })
     })
 
@@ -251,10 +332,12 @@ const createCardsTrendingGifos = async () => {
                 if (!arrayGifos.find(element => element.url === urlToSave) || arrayGifos.length === 0) {
                     arrayGifos.push({url: urlToSave, user: user, title: title,})
                     localStorage.setItem("arrayGifos", JSON.stringify(arrayGifos))
+                    event.target.src = './images/icon-fav-active.svg'
                 } else {
                     const index = arrayGifos.findIndex(element => element.url === urlToSave)
                     arrayGifos.splice(index, 1)
                     localStorage.setItem("arrayGifos", JSON.stringify(arrayGifos))
+                    event.target.src = './images/icon-fav-hover.svg'
                 }
             }
         })
