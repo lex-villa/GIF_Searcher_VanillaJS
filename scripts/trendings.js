@@ -87,7 +87,7 @@ const createCardsTrendingGifos = async () => {
         try {
             let response = await fetch(urlImage)
             let gifBlob = await response.blob()
-            console.info(gifBlob)
+            
             return gifBlob
 
         } catch (error) {
@@ -132,6 +132,7 @@ const createCardsTrendingGifos = async () => {
         const iconDownLoadImg = document.createElement("img")
         const iconMaxImg = document.createElement("img")
         iconLikeImg.src = "./images/icon-fav-hover.svg"
+        iconLikeImg.classList.add('btn-img-iconLike-hover-Trends')
         iconDownLoadImg.src = "./images/icon-download.svg"
         iconMaxImg.src = "./images/icon-max.svg"
         iconMaxImg.classList.add('btn-img-icon-TrendingGifo')
@@ -230,6 +231,35 @@ const createCardsTrendingGifos = async () => {
             })
         })
     })
+
+    /** Store GIFOS in LocalStorage*/
+    let iconLikeArray = document.querySelectorAll('.btn-img-iconLike-hover-Trends')
+
+    iconLikeArray.forEach(icon => {
+        icon.addEventListener('click', (event) => {
+            const urlToSave = event.srcElement.offsetParent.offsetParent.parentElement.childNodes[0].src
+            const user = event.srcElement.offsetParent.nextSibling.firstChild.textContent
+            const title = event.srcElement.offsetParent.nextSibling.lastChild.textContent
+
+            let arrayGifos = JSON.parse(localStorage.getItem("arrayGifos"))
+            
+            if (arrayGifos === null) {
+                arrayGifos = []
+                arrayGifos.push({url: urlToSave, user: user, title: title,})
+                localStorage.setItem("arrayGifos", JSON.stringify(arrayGifos))
+            } else {
+                if (!arrayGifos.find(element => element.url === urlToSave) || arrayGifos.length === 0) {
+                    arrayGifos.push({url: urlToSave, user: user, title: title,})
+                    localStorage.setItem("arrayGifos", JSON.stringify(arrayGifos))
+                } else {
+                    const index = arrayGifos.findIndex(element => element.url === urlToSave)
+                    arrayGifos.splice(index, 1)
+                    localStorage.setItem("arrayGifos", JSON.stringify(arrayGifos))
+                }
+            }
+        })
+    })
+    /** */
 }
 
 createCardsTrendingGifos();

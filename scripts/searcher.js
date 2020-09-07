@@ -117,7 +117,7 @@ export const createCardsForSearch = async inValue => {
         try {
             let response = await fetch(urlImage)
             let gifBlob = await response.blob()
-            console.info(gifBlob)
+           
             return gifBlob
 
         } catch (error) {
@@ -162,6 +162,7 @@ export const createCardsForSearch = async inValue => {
         const iconDownLoadImg = document.createElement("img")
         const iconMaxImg = document.createElement("img")
         iconLikeImg.src = "./images/icon-fav-hover.svg"
+        iconLikeImg.classList.add('btn-img-iconLike-hover')
         iconDownLoadImg.src = "./images/icon-download.svg"
         iconDownLoadImg.classList.add('btn-img-iconDownload-hover')
         iconMaxImg.src = "./images/icon-max.svg"
@@ -289,7 +290,36 @@ export const createCardsForSearch = async inValue => {
         })
     })
 
-    
+    /** Store GIFOS in LocalStorage*/
+    let iconLikeArray = document.querySelectorAll('.btn-img-iconLike-hover')
+
+    iconLikeArray.forEach(icon => {
+        icon.addEventListener('click', (event) => {
+            const urlToSave = event.srcElement.offsetParent.offsetParent.parentElement.childNodes[0].src
+            const user = event.srcElement.offsetParent.nextSibling.firstChild.textContent
+            const title = event.srcElement.offsetParent.nextSibling.lastChild.textContent
+
+            let arrayGifos = JSON.parse(localStorage.getItem("arrayGifos"))
+            
+            if (arrayGifos === null) {
+                arrayGifos = []
+                arrayGifos.push({url: urlToSave, user: user, title: title,})
+                localStorage.setItem("arrayGifos", JSON.stringify(arrayGifos))
+            } else {
+                if (!arrayGifos.find(element => element.url === urlToSave) || arrayGifos.length === 0) {
+                    arrayGifos.push({url: urlToSave, user: user, title: title,})
+                    localStorage.setItem("arrayGifos", JSON.stringify(arrayGifos))
+                } else {
+                    const index = arrayGifos.findIndex(element => element.url === urlToSave)
+                    arrayGifos.splice(index, 1)
+                    localStorage.setItem("arrayGifos", JSON.stringify(arrayGifos))
+                }
+            }
+        })
+    })
+    /** */
+
+
 }
 
 export const setValueTo1 = () => {
@@ -348,4 +378,30 @@ searchIconBtn.addEventListener('click', () => {
         completeInputContainer.classList.remove('active-styles')
         completeInputContainer.classList.add('passive-styles')
     }
+})
+
+/** */
+const btnLikeModal = document.querySelector('.like-icon')
+
+btnLikeModal.addEventListener('click', (event) => {
+    const urlToSave = event.srcElement.offsetParent.firstElementChild.nextElementSibling.currentSrc
+    const user = event.target.offsetParent.nextSibling.nextElementSibling.offsetParent.firstElementChild.children[1].nextElementSibling.childNodes[1].childNodes[1].innerText
+    const title = event.target.offsetParent.nextSibling.nextElementSibling.offsetParent.firstElementChild.children[1].nextElementSibling.childNodes[1].childNodes[1].nextElementSibling.innerText
+    
+    let arrayGifos = JSON.parse(localStorage.getItem("arrayGifos"))
+            
+            if (arrayGifos === null) {
+                arrayGifos = []
+                arrayGifos.push({url: urlToSave, user: user, title: title,})
+                localStorage.setItem("arrayGifos", JSON.stringify(arrayGifos))
+            } else {
+                if (!arrayGifos.find(element => element.url === urlToSave) || arrayGifos.length === 0) {
+                    arrayGifos.push({url: urlToSave, user: user, title: title,})
+                    localStorage.setItem("arrayGifos", JSON.stringify(arrayGifos))
+                } else {
+                    const index = arrayGifos.findIndex(element => element.url === urlToSave)
+                    arrayGifos.splice(index, 1)
+                    localStorage.setItem("arrayGifos", JSON.stringify(arrayGifos))
+                }
+            }
 })
