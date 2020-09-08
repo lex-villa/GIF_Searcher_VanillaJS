@@ -212,6 +212,7 @@ const createCardsTrendingGifos = async () => {
                     iconLikeImg.src = "./images/icon-fav-hover.svg"
                 } else {
                     iconLikeImg.src = "./images/icon-fav-active.svg"
+                    
                 }
             }
 
@@ -290,6 +291,23 @@ const createCardsTrendingGifos = async () => {
             const imageToShow = event.srcElement.offsetParent.offsetParent.parentElement.childNodes[0].src
             const image = document.getElementById("modal-content-id")
             image.src = imageToShow
+
+            const iconLikeImg = document.querySelector('.like-icon')
+
+            let arrayGifos = JSON.parse(localStorage.getItem("arrayGifos"))
+            if (arrayGifos === null) {
+                arrayGifos = []
+                localStorage.setItem("arrayGifos", JSON.stringify(arrayGifos))
+            }
+            if (arrayGifos.length === 0) {
+                iconLikeImg.src = "./images/icon-fav-hover.svg"
+            } else {
+                if (!arrayGifos.find(element => element.url === imageToShow)) {
+                    iconLikeImg.src = "./images/icon-fav-hover.svg"
+                } else {
+                    iconLikeImg.src = "./images/icon-fav-active.svg"
+                }
+            }
 
             const userGifo = event.srcElement.offsetParent.nextSibling.firstChild.textContent
             const titleGifo = event.srcElement.offsetParent.nextSibling.lastChild.textContent
