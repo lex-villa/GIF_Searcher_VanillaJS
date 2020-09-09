@@ -43,7 +43,7 @@
                 <li><a href="#" id="dark-mode">Modo Nocturno</a>
                     <hr class="hr-ul-separator">
                 </li>
-                <li><a href="#">Favoritos</a>
+                <li><a href="#" id="btn-nav-fav">Favoritos</a>
                     <hr class="hr-ul-separator">
                 </li>
                 <li><a href="#">Mis GIFOS</a>
@@ -89,6 +89,42 @@
                 </ul>
             </article>
         </section>
+
+        <section id="favoritos-cover" style="display:none">
+            <figure id="fav-title">
+                <img src="./images/icon-favoritos.svg" alt="logo-corazon">
+                <p>Favoritos</p>
+            </figure>
+            <figure id="fav-empty-container" style="display:none">
+                <img src="./images/icon-fav-sin-contenido.svg" alt="corazon-empty-gifos">
+                <p>"¡Guarda tu primer GIFO en Favoritos para que se muestre aquí!"</p>
+            </figure>
+            <figure id="favs-container" style="display: none;">
+
+                <!--
+                <figure class="figure-Favs-Container">
+                    <img src="https://via.placeholder.com/300" class="favs-results-styles">
+                    <div id="modal-favs" class="modal-favs-class">
+                        <div id="icons-result-favs" class="icons-section-hoverFavs">
+                            <figure class="figure-icons"><img src="./images/icon-fav-hover.svg" alt="icon"></figure>
+                            <figure class="figure-icons"><img src="./images/icon-download.svg" alt="icon"></figure>
+                            <figure class="figure-icons"><img src="./images/icon-max.svg" alt="icon" class="btn-img-icon-hover"></figure>
+                        </div>
+
+                        <div id="caption-results-favs" class="caption-section-hoverFavs">
+                            <p id="userCaptionFavs-id" class="userCaption-favs">User</p>
+                            <p id="tituloCaptionFavs-id" class="tituloCaption-favs">Titulo GIFO</p>
+                        </div>
+                    </div>
+                </figure> 
+                -->
+
+
+            </figure>
+
+        </section>
+
+        
 
         <!-- Section hidden by default -->
         <section id="search-results">
@@ -175,6 +211,7 @@
     <script src="./scripts/burguerMenu_darkMode.js" type="module"></script>
     <script src="./scripts/trendings.js" type="module"></script>
     <script src="./scripts/searcher.js" type="module"></script>
+    <script src="./scripts/favoritosCover.js" type="module"></script>
 
 </body>
 

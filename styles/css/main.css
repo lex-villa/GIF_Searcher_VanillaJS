@@ -1006,7 +1006,7 @@ header #ul-menu li hr {
 }
 
 #trendingGIFOS {
-  background: #F3F5F8;
+  background: var(--background-TrendingGIFOS);
   height: 410px;
   margin-top: 45px;
   padding-top: 46px;
@@ -1038,7 +1038,7 @@ header #ul-menu li hr {
 
 #trendingGIFOS #slider-container #carousel-container {
   margin-left: 22px;
-  overflow-x: auto;
+  overflow-x: hidden;
 }
 
 #trendingGIFOS #slider-container #carousel-container::-webkit-scrollbar {
@@ -1080,7 +1080,7 @@ header #ul-menu li hr {
 /***** DESKTOP VERSION ******/
 @media screen and (min-width: 1025px) {
   #trendingGIFOS {
-    background: #F3F5F8;
+    background: var(--background-TrendingGIFOS);
     height: 430px;
     margin-top: 95px;
     padding-top: 67px;
@@ -1130,8 +1130,7 @@ header #ul-menu li hr {
     width: 79%;
     height: 275px;
     margin: 0 auto;
-    border: 1px solid green;
-    overflow-x: auto;
+    overflow-x: hidden;
   }
   #trendingGIFOS #slider-container #carousel-container::-webkit-scrollbar {
     width: 0;
@@ -1145,7 +1144,6 @@ header #ul-menu li hr {
     margin-left: 0px;
     width: 100%;
     height: 275px;
-    border: 1px solid red;
   }
   #trendingGIFOS #slider-container #carousel-container #trending-results-container-GIFOS .figureTrendingContainer {
     width: 357px;
@@ -1340,6 +1338,187 @@ footer #p-2 {
   .decorative-end-bar {
     height: 5px;
     background: var(--bar-color);
+  }
+}
+
+/***** MOBILE VERSION ******/
+#favoritos-cover {
+  padding-top: 107px;
+}
+
+#favoritos-cover #fav-title {
+  text-align: center;
+}
+
+#favoritos-cover #fav-title p {
+  font-size: 25px;
+  font-weight: 700;
+  color: var(--purpleBlue-color-text);
+  text-align: center;
+  line-height: 30px;
+}
+
+#favoritos-cover #fav-empty-container {
+  text-align: center;
+}
+
+#favoritos-cover #fav-empty-container img {
+  margin-top: 109px;
+}
+
+#favoritos-cover #fav-empty-container p {
+  font-size: 22px;
+  font-weight: 700;
+  color: #50E3C2;
+  text-align: center;
+  line-height: 33px;
+  margin: 0 auto;
+  margin-top: 24px;
+  margin-bottom: 137px;
+  width: 90%;
+}
+
+/******* GIFOS SECTION *****************************/
+#favs-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (156px)[auto-fill];
+      grid-template-columns: repeat(auto-fill, 156px);
+  grid-gap: 21px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 46px;
+}
+
+#favs-container .figure-Favs-Container {
+  width: 156px;
+  height: 120px;
+}
+
+#favs-container .figure-Favs-Container .favs-results-styles {
+  width: 100%;
+  height: 100%;
+}
+
+#favs-container .figure-Favs-Container .modal-favs-class {
+  display: none;
+}
+
+/******************************************************************************/
+/***** DESKTOP VERSION ******/
+@media screen and (min-width: 1025px) {
+  #favoritos-cover {
+    padding-top: 107px;
+  }
+  #favoritos-cover #fav-title {
+    text-align: center;
+  }
+  #favoritos-cover #fav-title p {
+    font-size: 25px;
+    font-weight: 700;
+    color: var(--purpleBlue-color-text);
+    text-align: center;
+    line-height: 30px;
+    margin-top: 8px;
+  }
+  #favoritos-cover #fav-empty-container {
+    text-align: center;
+  }
+  #favoritos-cover #fav-empty-container img {
+    margin-top: 109px;
+  }
+  #favoritos-cover #fav-empty-container p {
+    font-size: 22px;
+    font-weight: 700;
+    color: #50E3C2;
+    text-align: center;
+    line-height: 33px;
+    margin: 0 auto;
+    margin-top: 24px;
+    margin-bottom: 137px;
+    width: 30%;
+  }
+  /******* GIFOS SECTION *****************************/
+  #favs-container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (260px)[auto-fill];
+        grid-template-columns: repeat(auto-fill, 260px);
+    grid-gap: 29px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-left: 156px;
+    margin-right: 157px;
+  }
+  #favs-container .figure-Favs-Container {
+    width: 260px;
+    height: 200px;
+  }
+  #favs-container .figure-Favs-Container .favs-results-styles {
+    width: 100%;
+    height: 100%;
+  }
+  #favs-container .figure-Favs-Container .modal-favs-class {
+    display: none;
+    opacity: 0.7;
+    background: #572ee5;
+    position: relative;
+    z-index: 5;
+    top: -200px;
+    height: inherit;
+  }
+  #favs-container .figure-Favs-Container .modal-favs-class .icons-section-hoverFavs {
+    position: relative;
+    z-index: 10;
+    top: 5px;
+    right: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  #favs-container .figure-Favs-Container .modal-favs-class .icons-section-hoverFavs .figure-icons {
+    opacity: 0.7;
+    background: #ffffff;
+    border-radius: 6px;
+    border-radius: 6px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    width: 32px;
+    height: 32px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin: 5px;
+    cursor: pointer;
+  }
+  #favs-container .figure-Favs-Container .modal-favs-class .icons-section-hoverFavs .figure-icons:hover {
+    opacity: 1;
+  }
+  #favs-container .figure-Favs-Container .modal-favs-class .caption-section-hoverFavs {
+    position: relative;
+    z-index: 10;
+    top: 80px;
+    margin-left: 10px;
+  }
+  #favs-container .figure-Favs-Container .modal-favs-class .caption-section-hoverFavs .userCaption-favs {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #ffffff;
+  }
+  #favs-container .figure-Favs-Container .modal-favs-class .caption-section-hoverFavs .tituloCaption-favs {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
   }
 }
 /*# sourceMappingURL=main.css.map */

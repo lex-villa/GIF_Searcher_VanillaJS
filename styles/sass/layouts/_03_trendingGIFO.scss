@@ -1,5 +1,5 @@
  #trendingGIFOS {
-    background: #F3F5F8;
+    background: var(--background-TrendingGIFOS);
     height: 410px;
 
     margin-top: 45px;
@@ -36,7 +36,7 @@
         #carousel-container {
         
             margin-left: 22px;
-            overflow-x: auto;
+            overflow-x: hidden;
             &::-webkit-scrollbar{
             width: 0;
             }
@@ -105,7 +105,7 @@
 /***** DESKTOP VERSION ******/
 @media screen and (min-width: 1025px) {
     #trendingGIFOS {
-        background: #F3F5F8;
+        background: var(--background-TrendingGIFOS);
         height: 430px;
     
         margin-top: 95px;
@@ -158,10 +158,10 @@
                 width: 79%;
                 height: 275px;
                 margin: 0 auto;
-                border: 1px solid green;
+                
 
 
-                overflow-x: auto;
+                overflow-x: hidden;
                 &::-webkit-scrollbar{
                 width: 0;
                 }
@@ -176,7 +176,7 @@
             
                     width: 100%;
                     height: 275px;
-                    border: 1px solid red;
+                    
                    
                     
                     
