@@ -1,0 +1,46 @@
+#create-GIFO-section {
+  padding-top: 107px;
+}
+#create-GIFO-section #main-square {
+  width: 688px;
+  height: 390px;
+  border: 1px solid #572EE5;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#create-GIFO-section #main-square #inside-square {
+  width: 638px;
+  height: 340px;
+  border: 1px solid #50E3C2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#create-GIFO-section #main-square #inside-square #p-cr-1 {
+  font-size: 25px;
+  font-weight: 700;
+  color: #572EE5;
+  text-align: center;
+  line-height: 35px;
+  width: 350px;
+}
+#create-GIFO-section #main-square #inside-square #p-cr-1 span {
+  color: #50E3C2;
+}
+#create-GIFO-section #main-square #inside-square #p-cr-2 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  text-align: center;
+  line-height: 29px;
+}
+#create-GIFO-section #main-square #inside-square #p-cr-3 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  text-align: center;
+  line-height: 29px;
+}

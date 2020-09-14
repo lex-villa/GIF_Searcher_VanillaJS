@@ -1521,4 +1521,161 @@ footer #p-2 {
     color: #ffffff;
   }
 }
+
+#create-GIFO-section {
+  padding-top: 107px;
+}
+
+#create-GIFO-section #camara-complete {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: absolute;
+  top: 227px;
+  left: 168px;
+}
+
+#create-GIFO-section #main-square {
+  width: 688px;
+  height: 390px;
+  border: 1px solid #572EE5;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#create-GIFO-section #main-square #inside-square {
+  width: 655px;
+  height: 357px;
+  border: 1px solid #50E3C2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#create-GIFO-section #main-square #inside-square #screenVideo {
+  width: 400px;
+  height: 320px;
+  display: none;
+}
+
+#create-GIFO-section #main-square #inside-square #p-cr-1 {
+  font-size: 25px;
+  font-weight: 700;
+  color: #572EE5;
+  text-align: center;
+  line-height: 35px;
+  width: 350px;
+}
+
+#create-GIFO-section #main-square #inside-square #p-cr-1 span {
+  color: #50E3C2;
+}
+
+#create-GIFO-section #main-square #inside-square #p-cr-2 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  text-align: center;
+  line-height: 29px;
+}
+
+#create-GIFO-section #main-square #inside-square #p-cr-3 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  text-align: center;
+  line-height: 29px;
+}
+
+#create-GIFO-section #below-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+#create-GIFO-section #below-section #steps-numbers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 150px;
+  margin-top: 24px;
+  margin-bottom: 19px;
+}
+
+#create-GIFO-section #below-section #steps-numbers .btns {
+  font-size: 18px;
+  font-weight: 500;
+  color: #572EE5;
+  text-align: center;
+  width: 10px;
+  height: 10px;
+  text-align: center;
+  border: 1px solid #572EE5;
+  border-radius: 50%;
+  padding: 10px;
+  line-height: 10px;
+}
+
+#create-GIFO-section #below-section #bigLine-purple {
+  width: 795.9px;
+  height: 6.9px;
+  background: #572EE5;
+  margin-bottom: 20px;
+}
+
+#create-GIFO-section #below-section button {
+  border: 1px solid #572EE5;
+  background-color: Transparent;
+  border-radius: 25px;
+  border-radius: 25px;
+  width: 127px;
+  height: 50px;
+  font-weight: 600;
+  font-size: 13px;
+  color: #572EE5;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+#create-GIFO-section #rollo-movie {
+  position: relative;
+  left: 1110px;
+  bottom: 167px;
+}
 /*# sourceMappingURL=main.css.map */

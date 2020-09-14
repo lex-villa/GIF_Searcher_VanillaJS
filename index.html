@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="./styles/css/reset.css">
     <link rel="stylesheet" href="./styles/css/main.css">
-    <link rel="stylesheet" href="" id="cssDarks">
+    <link rel="stylesheet" href="#" id="cssDarks">
     <title>GIFOS</title>
 </head>
 
@@ -124,7 +124,40 @@
 
         </section>
 
-        
+        <section id="create-GIFO-section" style="display:none">
+            <figure id="camara-complete">
+                <img id="camara" src="./images/camara.svg" alt="camara">
+                <img id="luz" src="./images/element-luz-camara.svg" alt="luz-camara">
+            </figure>
+
+            <div id="main-square">
+                <div id="inside-square">
+                    <video id="screenVideo"></video>
+                    <p id="p-cr-1" class="p-createSection">Aquí podrás crear tus propios <span>GIFOS</span></p>
+                    <p id="p-cr-2" class="p-createSection">¡Crea tu GIFO en sólo 3 pasos!</p>
+                    <p id="p-cr-3" class="p-createSection">(sólo necesitas una cámara para grabar un video)</p>
+                </div>
+            </div>
+
+            <div id="below-section">
+                <div id="steps-numbers">
+                    <p id="step-1" class="btns">1</p>
+                    <p id="step-2" class="btns">2</p>
+                    <p id="step-3" class="btns">3</p>
+                </div>
+
+                <div id="bigLine-purple"></div>
+
+                <button id="btn-start">Comenzar</button>
+                <button id="btnRecordId" class="start-btn" style="display: none"> Grabar </button>
+                <button id="btnFinishId" class="start-btn" style="display: none"> Finalizar </button>
+            </div>
+
+            <img id="rollo-movie" src="./images/pelicula.svg" alt="movie">
+
+        </section>
+
+
 
         <!-- Section hidden by default -->
         <section id="search-results">
@@ -197,21 +230,23 @@
     <footer>
         <p id="p-1">Compartir en:</p>
         <div id="social-networks">
-            <a href="http://"><img src="./images/icon_facebook.svg" alt="icon-facebook"></a>
-            <a href="http://"><img src="./images/icon-twitter.svg" alt="icon-twitter"></a>
-            <a href="http://"><img src="./images/icon_instagram.svg" alt="icon-instagram"></a>
+            <a href="http://www.facebook.com"><img src="./images/icon_facebook.svg" alt="icon-facebook"></a>
+            <a href="http://www.twitter.com"><img src="./images/icon-twitter.svg" alt="icon-twitter"></a>
+            <a href="http://www.instagram.com"><img src="./images/icon_instagram.svg" alt="icon-instagram"></a>
         </div>
         <p id="p-2">© GIFOS 2020 All Rights Reserved.</p>
-        
+
     </footer>
     <div class="decorative-end-bar"></div>
-    
+
 
     <!-- Scripts -->
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
     <script src="./scripts/burguerMenu_darkMode.js" type="module"></script>
     <script src="./scripts/trendings.js" type="module"></script>
     <script src="./scripts/searcher.js" type="module"></script>
     <script src="./scripts/favoritosCover.js" type="module"></script>
+    <script src="./scripts/createGIFO.js" type="module"></script>
 
 </body>
 

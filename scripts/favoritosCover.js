@@ -2,6 +2,9 @@
 const btnNavFavoritos = document.getElementById('btn-nav-fav')
 const logoGIFOHome = document.getElementById('logo-img')
 
+const gifoSectionContainer = document.getElementById('create-GIFO-section')
+const trenGIFOcover = document.getElementById('trendingGIFOS')
+
 const principalCoverSection = document.getElementById('cover-page')
 const favoritosCover = document.getElementById('favoritos-cover')
 const favEmptyContainer = document.getElementById('fav-empty-container')
@@ -11,6 +14,7 @@ const favsGIFOSContainer = document.getElementById('favs-container')
 btnNavFavoritos.addEventListener('click', () => {
     principalCoverSection.style.display = 'none'
     favoritosCover.style.display = 'block'
+    gifoSectionContainer.style.display = 'none'
 
     let arrayGifos = JSON.parse(localStorage.getItem("arrayGifos"))
 
@@ -32,6 +36,8 @@ logoGIFOHome.addEventListener('click', () => {
     favoritosCover.style.display = 'none'
     favEmptyContainer.style.display = 'none'
     favsGIFOSContainer.style.display = 'none'
+    gifoSectionContainer.style.display = 'none'
+    trenGIFOcover.style.display = 'block'
 })
 
 
