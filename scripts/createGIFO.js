@@ -18,7 +18,7 @@ const pTags = document.querySelectorAll('.p-createSection')
 const numberBtns = document.querySelectorAll('.btns')
 
 /** Functions */
-const myGIFsLocalStrg = JSON.parse(localStorage.getItem("myGIFs"));
+let myGIFsLocalStrg = JSON.parse(localStorage.getItem("myGIFs"));
 if (!myGIFsLocalStrg) {
     myGIFsLocalStrg = []
 }
