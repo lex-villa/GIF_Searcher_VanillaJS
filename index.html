@@ -46,7 +46,7 @@
                 <li><a href="#" id="btn-nav-fav">Favoritos</a>
                     <hr class="hr-ul-separator">
                 </li>
-                <li><a href="#">Mis GIFOS</a>
+                <li><a href="#" id="btn-nav-myGifos">Mis GIFOS</a>
                     <hr class="hr-ul-separator">
                 </li>
                 <li id="button-crea-gif"><a href="#"><img src="./images/button-crear-gifo.svg" alt="button-crear-gifo"
@@ -124,6 +124,43 @@
 
         </section>
 
+
+        <section id="MisGifos-cover" style="display:none">
+            <figure id="myGifo-title">
+                <img src="./images/icon-favoritos.svg" alt="logo-corazon">
+                <p>Mis Gifos</p>
+            </figure>
+            <figure id="myGifo-empty-container" style="display:none">
+                <img src="./images/icon-fav-sin-contenido.svg" alt="corazon-empty-gifos">
+                <p>"¡Animate a crear tu primer Gifo!"</p>
+            </figure>
+            <figure id="MyGifos-container" style="display: none;">
+
+                <!--
+                <figure class="figure-myGifos-Container">
+                    <img src="https://via.placeholder.com/300" class="myGifos-results-styles">
+                    <div id="modal-favs" class="modal-myGifos-class">
+                        <div id="icons-result-favs" class="icons-section-hoverMyGifos">
+                            <figure class="figure-icons"><img src="./images/icon-fav-hover.svg" alt="icon"></figure>
+                            <figure class="figure-icons"><img src="./images/icon-download.svg" alt="icon"></figure>
+                            <figure class="figure-icons"><img src="./images/icon-max.svg" alt="icon" class="btn-img-icon-hover"></figure>
+                        </div>
+
+                        <div id="caption-results-favs" class="caption-section-hoverMygifos">
+                            <p id="userCaptionFavs-id" class="userCaption-myGifos">User</p>
+                            <p id="tituloCaptionFavs-id" class="tituloCaption-myGifos">Titulo GIFO</p>
+                        </div>
+                    </div>
+                </figure> 
+                -->
+
+
+            </figure>
+
+        </section>
+
+
+
         <section id="create-GIFO-section" style="display:none">
             <figure id="camara-complete">
                 <img id="camara" src="./images/camara.svg" alt="camara">
@@ -151,6 +188,7 @@
                 <button id="btn-start">Comenzar</button>
                 <button id="btnRecordId" class="start-btn" style="display: none"> Grabar </button>
                 <button id="btnFinishId" class="start-btn" style="display: none"> Finalizar </button>
+                <button id="btnUploadId" class="start-btn" style="display: none"> Sube tu gif </button>
             </div>
 
             <img id="rollo-movie" src="./images/pelicula.svg" alt="movie">
@@ -246,6 +284,7 @@
     <script src="./scripts/trendings.js" type="module"></script>
     <script src="./scripts/searcher.js" type="module"></script>
     <script src="./scripts/favoritosCover.js" type="module"></script>
+    <script src="./scripts/myGifosCover.js" type="module"></script>
     <script src="./scripts/createGIFO.js" type="module"></script>
 
 </body>

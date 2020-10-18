@@ -5,24 +5,44 @@ const favoritosCover = document.getElementById('favoritos-cover')
 const favEmptyContainer = document.getElementById('fav-empty-container')
 const favsGIFOSContainer = document.getElementById('favs-container')
 const trenGIFOcover = document.getElementById('trendingGIFOS')
+const containerResults = document.getElementById('search-results')
+const myGifosGIFOSContainerSection = document.getElementById('MisGifos-cover')
 /** HTML elements from Create Gifo section */
 const gifoSectionContainer = document.getElementById('create-GIFO-section')
 const btnStart = document.getElementById('btn-start')
 const btnRecord = document.getElementById('btnRecordId')
 const btnFinish = document.getElementById('btnFinishId')
+const btnUpload = document.getElementById('btnUploadId')
 const video = document.getElementById('screenVideo')
 const pTags = document.querySelectorAll('.p-createSection')
 const numberBtns = document.querySelectorAll('.btns')
 
 /** Functions */
+const myGIFsLocalStrg = JSON.parse(localStorage.getItem("myGIFs"));
+if (!myGIFsLocalStrg) {
+    myGIFsLocalStrg = []
+}
 
+async function uploadGIF(gif) {
+    const res = await fetch("https://upload.giphy.com/v1/gifs" + "?api_key=isa5RTREAjmlL4Sr9iYEx9g5QycePeF2", {
+        method: 'POST',
+        body: gif,
+    });
+
+    const uploadResults = await res.json();
+    console.log("subida de gifo")
+    console.log(uploadResults)
+
+    myGIFsLocalStrg.push(uploadResults.data.id)
+    localStorage.setItem('myGIFs', JSON.stringify(myGIFsLocalStrg));
+}
 /** Acceso a la camara para generar un stream de video */
 let stream = null;
 const constraints = {
     audio: false,
     video: {
-        width: 400,
-        height: 320,
+        width: 640,
+        height: 360,
     },
 };
 
@@ -74,8 +94,8 @@ function recordingGif() {
                 recorderType: GifRecorder,
                 disableLogs: true,
                 quality: 6,
-                width: 400,
-                height: 320
+                width: 640,
+                height: 360
             });
             recorder.startRecording();
             recorder.stream = stream;
@@ -100,7 +120,7 @@ const stepTwo = async () => {
 function stopMakingGif() {
 
     btnFinishId.style.display = 'none';
-
+    btnUpload.style.display = 'block'
 
     recorder.stopRecording(stopRecordingCallBack);
 
@@ -126,10 +146,23 @@ const stepThree = async () => {
     numberBtns[1].style.color = '#572EE5'
     numberBtns[2].style.background = '#572EE5'
     numberBtns[2].style.color = 'white'
-    
+
 
 
     stopMakingGif()
+
+}
+
+
+const stepFour = () => {
+    let form = new FormData();
+
+    form.append('file', blob, 'myGIF.gif');
+
+    
+
+    uploadGIF(form)
+    btnUpload.style.display = 'none'
 }
 
 /******************************************************************************* */
@@ -142,6 +175,8 @@ btnCreateGifo.addEventListener('click', () => {
     favEmptyContainer.style.display = 'none'
     favsGIFOSContainer.style.display = 'none'
     trenGIFOcover.style.display = 'none'
+    containerResults.style.display = 'none'
+    myGifosGIFOSContainerSection.style.display = 'none'
 })
 
 btnStart.addEventListener('click', () => {
@@ -154,6 +189,10 @@ btnRecord.addEventListener('click', () => {
 
 btnFinish.addEventListener('click', () => {
     stepThree()
+})
+
+btnUpload.addEventListener('click', () => {
+    stepFour()
 })
 /** */
 

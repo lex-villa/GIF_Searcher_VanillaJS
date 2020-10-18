@@ -1,0 +1,215 @@
+/***** MOBILE VERSION ******/
+
+#MisGifos-cover {
+    padding-top: 107px;
+
+    #myGifo-title {
+        text-align: center;
+        img {
+
+        }
+
+        p {
+            font-size: 25px;
+            font-weight: 700;
+            color: var(--purpleBlue-color-text);
+            text-align: center;
+            line-height: 30px;
+        }
+
+    }
+
+    #myGifo-empty-container {
+        text-align: center;
+        img {
+            margin-top: 109px;
+        }
+
+        p {
+            font-size: 22px;
+            font-weight: 700;
+            color: #50E3C2;
+            text-align: center;
+            line-height: 33px;
+
+            margin: 0 auto;
+            margin-top: 24px;
+            margin-bottom: 137px;
+
+            width: 90%;
+        }
+    }
+}
+
+/******* GIFOS SECTION *****************************/
+
+#MyGifos-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 156px);
+        grid-gap: 21px;
+        justify-content: center;
+        margin-top: 46px;
+    .figure-myGifos-Container {
+            width: 156px;
+            height: 120px;
+        .myGifos-results-styles {
+            width: 100%;
+            height: 100%;
+        }
+
+
+        .modal-myGifos-class {
+            display: none;
+
+            .icons-section-hoverMyGifos {
+                .figure-icons {
+
+                }
+            }
+
+
+
+            .caption-section-hoverFavs {
+
+                .userCaption-favs {
+
+                }
+
+                .tituloCaption-favs {
+
+                }
+            }
+        }
+    }
+}
+
+
+/******************************************************************************/
+/***** DESKTOP VERSION ******/
+
+@media screen and (min-width: 1025px) {
+    #MisGifos-cover {
+        padding-top: 107px;
+    
+        #myGifo-title {
+            text-align: center;
+            img {
+               
+            }
+    
+            p {
+                font-size: 25px;
+                font-weight: 700;
+                color: var(--purpleBlue-color-text);
+                text-align: center;
+                line-height: 30px;
+
+                margin-top: 8px;
+            }
+    
+        }
+    
+        #myGifo-empty-container {
+            text-align: center;
+            img { 
+                margin-top: 109px;
+            }
+    
+            p {
+                font-size: 22px;
+                font-weight: 700;
+                color: #50E3C2;
+                text-align: center;
+                line-height: 33px;
+    
+                margin: 0 auto;
+                margin-top: 24px;
+                margin-bottom: 137px;
+    
+                width: 30%;
+            }
+        }
+    }
+
+    /******* GIFOS SECTION *****************************/
+    #MyGifos-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 260px);
+        grid-gap: 29px;
+        justify-content: center;
+
+        margin-left: 156px;
+        margin-right: 157px;
+    .figure-myGifos-Container {
+        width: 260px;
+        height: 200px;
+        .myGifos-results-styles {
+            width: 100%;
+            height: 100%;
+        }
+
+
+        .modal-myGifos-class {
+            display: none;
+
+            opacity: 0.7;
+            background: #572ee5;
+            position: relative;
+            z-index: 5;
+            top: -200px;
+            height: inherit;
+
+            .icons-section-hoverMyGifos {
+                position: relative;
+                z-index: 10;
+                top: 5px;
+                right: 5px;
+                display: flex;
+                justify-content: flex-end;  
+                .figure-icons {
+                    opacity: 0.7;
+                    background: #ffffff;
+                    border-radius: 6px;
+                    border-radius: 6px;
+                    width: fit-content;
+            
+                    width: 32px;
+                    height: 32px;
+            
+                    display: flex;
+                    justify-content: center;
+            
+                    margin: 5px;
+                    cursor: pointer;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+
+
+
+            .caption-section-hoverMygifos {
+                position: relative;
+                z-index: 10;
+                top: 80px;
+                
+                margin-left: 10px;
+                .userCaption-myGifos {
+                    margin-top: 5px;
+                    margin-bottom: 10px;
+                    font-size: 15px;
+                    color: #ffffff;
+                }
+
+                .tituloCaption-myGifos {
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+}
+}

@@ -1,5 +1,4 @@
-
-const btnNavFavoritos = document.getElementById('btn-nav-fav')
+const btnNavMyGifos = document.getElementById('btn-nav-myGifos')
 const logoGIFOHome = document.getElementById('logo-img')
 const containerResults = document.getElementById('search-results')
 
@@ -8,50 +7,42 @@ const trenGIFOcover = document.getElementById('trendingGIFOS')
 
 const principalCoverSection = document.getElementById('cover-page')
 const favoritosCover = document.getElementById('favoritos-cover')
-const favEmptyContainer = document.getElementById('fav-empty-container')
-const favsGIFOSContainer = document.getElementById('favs-container')
+const mygifoEmptyContainer = document.getElementById('myGifo-empty-container')
+const myGifoContainer = document.getElementById('MyGifos-container')
 const myGifosGIFOSContainerSection = document.getElementById('MisGifos-cover')
 
 
-btnNavFavoritos.addEventListener('click', () => {
+btnNavMyGifos.addEventListener('click', () => {
     containerResults.style.display = 'none'
     principalCoverSection.style.display = 'none'
-    favoritosCover.style.display = 'block'
+    favoritosCover.style.display = 'none'
     gifoSectionContainer.style.display = 'none'
-    myGifosGIFOSContainerSection.style.display = 'none'
+    myGifosGIFOSContainerSection.style.display = 'block'
 
-    let arrayGifos = JSON.parse(localStorage.getItem("arrayGifos"))
+    let myGifs = JSON.parse(localStorage.getItem("myGIFs"))
+    console.log(myGifs)
+    if (myGifs != null) {
+        if (myGifs.length === 0) {
+            mygifoEmptyContainer.style.display = 'block'
+            myGifoContainer.style.display = 'none'
 
-    if (arrayGifos.length === 0) {
-        favEmptyContainer.style.display = 'block'
-        favsGIFOSContainer.style.display = 'none'
-
+        } else {
+            mygifoEmptyContainer.style.display = 'none'
+            myGifoContainer.innerHTML = ''
+            createCardsMisGifos()
+            myGifoContainer.style.display = 'grid'
+        }
     } else {
-        favEmptyContainer.style.display = 'none'
-        favsGIFOSContainer.innerHTML = ''
-        createCardsFavoritos()
-        favsGIFOSContainer.style.display = 'grid'
+        mygifoEmptyContainer.style.display = 'block'
+        myGifoContainer.style.display = 'none'
 
     }
 })
 
-logoGIFOHome.addEventListener('click', () => {
-    principalCoverSection.style.display = 'block'
-    containerResults.style.display = 'grid'
-    containerResults.style.display = 'grid'
-    favoritosCover.style.display = 'none'
-    favEmptyContainer.style.display = 'none'
-    favsGIFOSContainer.style.display = 'none'
-    gifoSectionContainer.style.display = 'none'
-    trenGIFOcover.style.display = 'block'
-    myGifosGIFOSContainerSection.style.display = 'none'
-})
 
 
-
-
-const createCardsFavoritos = () => {
-    let searchResult = JSON.parse(localStorage.getItem("arrayGifos"))
+const createCardsMisGifos = () => {
+    let searchResult = JSON.parse(localStorage.getItem("myGIFs"))
 
     /** To  get Blob for download*/
     const getImage = async (urlImage) => {
@@ -68,23 +59,23 @@ const createCardsFavoritos = () => {
     /** */
 
     searchResult.forEach(gifElement => {
-        const imageURL = gifElement.url
-        const user = gifElement.user
-        const title = gifElement.title
+        const imageURL = "https://media.giphy.com/media/" + gifElement +"/giphy.gif"
+        // const user = gifElement.user
+        // const title = gifElement.title
 
         const figureContainer = document.createElement('figure')
-        figureContainer.classList.add("figure-Favs-Container")
+        figureContainer.classList.add("figure-myGifos-Container")
 
         const imgTag = document.createElement('img')
         imgTag.src = imageURL
-        imgTag.classList.add("favs-results-styles")
+        imgTag.classList.add("myGifos-results-styles")
 
 
         const divModalContainer = document.createElement("div")
-        divModalContainer.classList.add("modal-favs-class")
+        divModalContainer.classList.add("modal-myGifos-class")
 
         const divIconSection = document.createElement("div")
-        divIconSection.classList.add("icons-section-hoverFavs")
+        divIconSection.classList.add("icons-section-hoverMyGifos")
 
         const figureIconLike = document.createElement("figure")
         const figureIconDownload = document.createElement("a")
@@ -103,20 +94,20 @@ const createCardsFavoritos = () => {
         const iconDownLoadImg = document.createElement("img")
         const iconMaxImg = document.createElement("img")
 
-        let arrayGifos = JSON.parse(localStorage.getItem("arrayGifos"))
-        if (arrayGifos === null) {
-            arrayGifos = []
-            localStorage.setItem("arrayGifos", JSON.stringify(arrayGifos))
-        }
-        if (arrayGifos.length === 0) {
-            iconLikeImg.src = "./images/icon-fav-hover.svg"
-        } else {
-            if (!arrayGifos.find(element => element.url === imageURL)) {
-                iconLikeImg.src = "./images/icon-fav-hover.svg"
-            } else {
-                iconLikeImg.src = "./images/icon-fav-active.svg"
-            }
-        }
+        // let arrayGifos = JSON.parse(localStorage.getItem("arrayGifos"))
+        // if (arrayGifos === null) {
+        //     arrayGifos = []
+        //     localStorage.setItem("arrayGifos", JSON.stringify(arrayGifos))
+        // }
+        // if (arrayGifos.length === 0) {
+        //     iconLikeImg.src = "./images/icon-fav-hover.svg"
+        // } else {
+        //     if (!arrayGifos.find(element => element.url === imageURL)) {
+        //         iconLikeImg.src = "./images/icon-fav-hover.svg"
+        //     } else {
+        //         iconLikeImg.src = "./images/icon-fav-active.svg"
+        //     }
+        // }
 
 
 
@@ -137,29 +128,29 @@ const createCardsFavoritos = () => {
         divModalContainer.appendChild(divIconSection)
 
 
-        const divCaptionSection = document.createElement("div")
-        divCaptionSection.classList.add("caption-section-hoverFavs")
+        // const divCaptionSection = document.createElement("div")
+        // divCaptionSection.classList.add("caption-section-hoverMygifos")
 
-        const pTagUser = document.createElement('p')
-        pTagUser.classList.add("userCaption-favs")
-        const pTagtitle = document.createElement('p')
-        pTagtitle.classList.add("tituloCaption-favs")
-        pTagUser.innerHTML = user
-        pTagtitle.innerHTML = title
+        // // const pTagUser = document.createElement('p')
+        // // pTagUser.classList.add("userCaption-myGifos")
+        // // const pTagtitle = document.createElement('p')
+        // // pTagtitle.classList.add("tituloCaption-myGifos")
+        // // pTagUser.innerHTML = user
+        // // pTagtitle.innerHTML = title
 
-        divCaptionSection.appendChild(pTagUser)
-        divCaptionSection.appendChild(pTagtitle)
+        // // divCaptionSection.appendChild(pTagUser)
+        // // divCaptionSection.appendChild(pTagtitle)
 
-        divModalContainer.appendChild(divCaptionSection)
+        // divModalContainer.appendChild(divCaptionSection)
 
 
         figureContainer.appendChild(imgTag)
         figureContainer.appendChild(divModalContainer)
 
-        favsGIFOSContainer.appendChild(figureContainer)
+        myGifoContainer.appendChild(figureContainer)
     })
 
-    const gifsFromSearchResult = document.querySelectorAll('.favs-results-styles')
+    const gifsFromSearchResult = document.querySelectorAll('.myGifos-results-styles')
     const gifsFromSearchResultArray = Array.from(gifsFromSearchResult)
 
 
@@ -243,7 +234,7 @@ const createCardsFavoritos = () => {
     })
 
     /** */
-    const figuresContainers = document.querySelectorAll(".modal-favs-class");
+    const figuresContainers = document.querySelectorAll(".modal-myGifos-class");
 
     figuresContainers.forEach(x => {
         x.addEventListener('mouseleave', event => {
@@ -278,12 +269,12 @@ const createCardsFavoritos = () => {
                 }
             }
 
-            const userGifo = event.srcElement.offsetParent.nextSibling.firstChild.textContent
-            const titleGifo = event.srcElement.offsetParent.nextSibling.lastChild.textContent
-            const userCaption = document.getElementById("userCaption-id")
-            const titleCaption = document.getElementById("tituloCaption-id")
-            userCaption.innerHTML = userGifo
-            titleCaption.innerHTML = titleGifo
+            // const userGifo = event.srcElement.offsetParent.nextSibling.firstChild.textContent
+            // const titleGifo = event.srcElement.offsetParent.nextSibling.lastChild.textContent
+            // const userCaption = document.getElementById("userCaption-id")
+            // const titleCaption = document.getElementById("tituloCaption-id")
+            // userCaption.innerHTML = userGifo
+            // titleCaption.innerHTML = titleGifo
 
             const modal = document.getElementById("myModal")
             modal.style.display = "block"
@@ -332,6 +323,3 @@ const createCardsFavoritos = () => {
     /** */
 
 }
-
-
-
